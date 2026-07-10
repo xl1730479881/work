@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年6月 常州分公司业绩复盘报告</title>
+<style>
+  :root {
+    --primary: #1a5276;
+    --accent: #e67e22;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border: #ecf0f1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #0c3483 0%, #1a5276 50%, #2980b9 100%);
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  .hero h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .hero .subtitle {
+    font-size: 1.2em;
+    margin-top: 12px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .meta {
+    margin-top: 20px;
+    font-size: 0.9em;
+    opacity: 0.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+
+  /* Section */
+  .section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  }
+  .section h2 {
+    font-size: 1.6em;
+    color: var(--primary);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section h2 .icon { font-size: 1.4em; }
+  .section h3 {
+    font-size: 1.2em;
+    color: var(--primary);
+    margin: 20px 0 12px;
+  }
+
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .kpi-card {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .kpi-card.highlight {
+    border-left-color: var(--accent);
+    background: linear-gradient(135deg, #fef5e7, #fff9f0);
+  }
+  .kpi-card.success {
+    border-left-color: var(--success);
+    background: linear-gradient(135deg, #eafaf1, #f0faf4);
+  }
+  .kpi-card.danger {
+    border-left-color: var(--danger);
+    background: linear-gradient(135deg, #fdedec, #fdf2f2);
+  }
+  .kpi-card .label {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .kpi-card .value {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .kpi-card.highlight .value { color: var(--accent); }
+  .kpi-card.success .value { color: var(--success); }
+  .kpi-card.danger .value { color: var(--danger); }
+  .kpi-card .sub {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.92em;
+  }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 600;
+  }
+  td {
+    padding: 9px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: #f8f9fa; }
+  tr.subtotal td {
+    font-weight: 700;
+    background: #eaf2f8;
+    border-top: 2px solid var(--primary);
+  }
+  tr.total td {
+    font-weight: 700;
+    background: #d4e6f1;
+    font-size: 1.05em;
+  }
+
+  /* Chart Bars */
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 200px;
+    padding: 10px 0;
+    margin: 16px 0;
+  }
+  .bar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .bar {
+    width: 100%;
+    max-width: 80px;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    transition: height 0.6s ease;
+    min-width: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .bar .bar-label {
+    position: absolute;
+    top: -22px;
+    font-weight: 700;
+    font-size: 0.85em;
+  }
+  .bar-wrapper .x-label {
+    margin-top: 8px;
+    font-size: 0.82em;
+    color: var(--text-secondary);
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 24px;
+    margin: 8px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: white;
+    transition: width 1s ease;
+  }
+
+  /* Insight Box */
+  .insight-box {
+    background: linear-gradient(135deg, #eaf2f8, #d4e6f1);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+  .insight-box.warning {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0);
+    border-left-color: var(--warning);
+  }
+  .insight-box.success {
+    background: linear-gradient(135deg, #eafaf1, #d5f5e3);
+    border-left-color: var(--success);
+  }
+  .insight-box strong { color: var(--primary); }
+
+  /* Grid 2 col */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2em; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 24px 18px; }
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 600;
+  }
+  .tag-up { background: #eafaf1; color: var(--success); }
+  .tag-down { background: #fdedec; color: var(--danger); }
+  .tag-warn { background: #fef9e7; color: var(--warning); }
+
+  /* Recommendation cards */
+  .rec-card {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 14px 0;
+    border: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .rec-num {
+    background: var(--accent);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    flex-shrink: 0;
+  }
+  .rec-content h4 { color: var(--primary); margin-bottom: 6px; }
+  .rec-content p { color: var(--text-secondary); font-size: 0.92em; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-size: 0.85em;
+  }
+
+  /* Pie visualization */
+  .pie-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .pie-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9em;
+  }
+  .pie-legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .section { box-shadow: none; break-inside: avoid; }
+    .hero { padding: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Hero Header ===== -->
+<div class="hero">
+  <h1>📊 2026年6月 常州分公司业绩复盘报告</h1>
+  <div class="subtitle">全国性财税培训机构 · 常州分公司月度经营分析</div>
+  <div class="meta">
+    报告周期：2026年6月 &nbsp;|&nbsp;
+    数据截止：2026年6月30日 &nbsp;|&nbsp;
+    报告日期：2026年7月9日 &nbsp;|&nbsp;
+    编制：cc
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== 一、核心经营数据概览 ===== -->
+<div class="section">
+  <h2><span class="icon">🎯</span>一、6月核心经营数据概览</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-card highlight">
+      <div class="label">📈 6月营业总收入</div>
+      <div class="value">¥57.88万</div>
+      <div class="sub">环比5月（¥31.69万）+82.6%</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="label">🔄 月续费率</div>
+      <div class="value">67.50%</div>
+      <div class="sub">环比5月（55.88%）+11.62pp</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">👥 会员持有率</div>
+      <div class="value">100.18%</div>
+      <div class="sub">期初549人 → 月末550人</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="label">💰 客单价（会员）</div>
+      <div class="value">¥8,837</div>
+      <div class="sub">67单开票，整体票均¥8,170</div>
+    </div>
+    <div class="kpi-card danger">
+      <div class="label">📉 年度累计对比</div>
+      <div class="value">-26.02%</div>
+      <div class="sub">累计¥193.82万 vs 去年¥261.99万</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">👤 人均月绩效</div>
+      <div class="value">¥4.45万</div>
+      <div class="sub">13名业务人员，人均年累计¥14.91万</div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>★ 关键发现：</strong>6月业绩强势反弹，收入环比增长82.6%，单月创近4个月新高（仅次于3月旺季）。续费率回升至67.5%，结束5月下滑趋势。但年度累计同比仍下降26%，追回差距是下半年核心任务。
+  </div>
+</div>
+
+<!-- ===== 二、6月业绩构成分析 ===== -->
+<div class="section">
+  <h2><span class="icon">📋</span>二、6月业绩结构深度拆解</h2>
+
+  <h3>2.1 收入构成总览</h3>
+  <table>
+    <tr><th>收入类别</th><th>金额（元）</th><th>占比</th><th>环比变化</th></tr>
+    <tr><td>🔹 新会员收入</td><td>194,420</td><td>33.6%</td><td><span class="tag tag-up">+55.3%</span></td></tr>
+    <tr><td>🔹 续费收入</td><td>341,650</td><td>59.0%</td><td><span class="tag tag-up">+155.6%</span></td></tr>
+    <tr><td>🔹 单次收入</td><td>15,410</td><td>2.7%</td><td><span class="tag tag-down">-38.5%</span></td></tr>
+    <tr><td>🔹 单品收入（AI/证书/其他）</td><td>27,341</td><td>4.7%</td><td><span class="tag tag-down">-11.8%</span></td></tr>
+    <tr class="total"><td>📌 总收入合计</td><td>578,821</td><td>100%</td><td><span class="tag tag-up">+82.6%</span></td></tr>
+  </table>
+
+  <div class="insight-box">
+    <strong>★ 结构洞察：</strong>续费占比59%是最大收入来源，6月续费爆发式增长（+155.6%）说明到期会员集中续费+上半年积累释放。新会员收入占比33.6%，保持健康。单品（AI/证书等）仅占4.7%，<strong>高毛利单品渗透不足是明显短板</strong>。
+  </div>
+
+  <h3>2.2 各团队业绩明细</h3>
+  <table>
+    <tr><th>团队</th><th>单品</th><th>新单会员</th><th>续费</th><th>合计</th><th>会员占比</th><th>环比</th></tr>
+    <tr><td>一组（石刘琴）</td><td>-1,761</td><td>92,140</td><td>109,000</td><td><strong>199,379</strong></td><td>100.9%</td><td><span class="tag tag-up">+67.8%</span></td></tr>
+    <tr><td>二组大组（陈萍）</td><td>12,084</td><td>81,760</td><td>173,250</td><td><strong>267,094</strong></td><td>95.5%</td><td><span class="tag tag-up">+73.3%</span></td></tr>
+    <tr style="background:#fcfcfc"><td>&nbsp;&nbsp;其中：陈萍+谢海燕+顾太福</td><td>9,980</td><td>39,600</td><td>113,850</td><td>163,430</td><td>93.9%</td><td>—</td></tr>
+    <tr style="background:#fcfcfc"><td>&nbsp;&nbsp;其中：2-1组（董志云+郑婷婷）</td><td>2,104</td><td>42,160</td><td>59,400</td><td>103,664</td><td>98.0%</td><td>—</td></tr>
+    <tr><td>三组（周月+孟惠）</td><td>17,019</td><td>35,930</td><td>59,400</td><td><strong>112,349</strong></td><td>84.9%</td><td><span class="tag tag-up">+155.3%</span></td></tr>
+    <tr><td>其他（夏兰/内训）</td><td>0</td><td>0</td><td>0</td><td>20,000</td><td>—</td><td>—</td></tr>
+    <tr class="total"><td>📌 合计</td><td>27,341</td><td>209,830</td><td>341,650</td><td>578,821</td><td>95.3%</td><td><span class="tag tag-up">+82.6%</span></td></tr>
+  </table>
+
+  <h3>2.3 个人业绩排名（6月单月）</h3>
+  <table>
+    <tr><th>排名</th><th>姓名</th><th>所属团队</th><th>单品</th><th>新单</th><th>续费</th><th>合计</th><th>会员占比</th></tr>
+    <tr><td>🥇</td><td>陈萍</td><td>二组</td><td>6,000</td><td>39,600</td><td>94,050</td><td><strong>139,650</strong></td><td>95.7%</td></tr>
+    <tr><td>🥈</td><td>周月</td><td>三组</td><td>17,019</td><td>26,030</td><td>39,600</td><td><strong>82,649</strong></td><td>79.4%</td></tr>
+    <tr><td>🥉</td><td>石刘琴</td><td>一组</td><td>699</td><td>7,730</td><td>69,300</td><td><strong>77,729</strong></td><td>99.1%</td></tr>
+    <tr><td>4</td><td>郑婷婷</td><td>2-1组</td><td>0</td><td>17,410</td><td>34,650</td><td><strong>52,060</strong></td><td>100%</td></tr>
+    <tr><td>5</td><td>董志云</td><td>2-1组</td><td>2,104</td><td>24,750</td><td>24,750</td><td><strong>51,604</strong></td><td>95.9%</td></tr>
+    <tr><td>6</td><td>樊颜辉</td><td>一组</td><td>3,100</td><td>11,180</td><td>29,800</td><td><strong>44,080</strong></td><td>93.0%</td></tr>
+    <tr><td>7</td><td>孟惠</td><td>三组</td><td>0</td><td>9,900</td><td>19,800</td><td><strong>29,700</strong></td><td>100%</td></tr>
+    <tr><td>8</td><td>刘一丁</td><td>一组</td><td>0</td><td>28,720</td><td>0</td><td><strong>28,720</strong></td><td>100%</td></tr>
+    <tr><td>9</td><td>李永康</td><td>一组</td><td>0</td><td>22,150</td><td>0</td><td><strong>22,150</strong></td><td>100%</td></tr>
+    <tr><td>10</td><td>顾太福</td><td>二组</td><td>0</td><td>0</td><td>19,800</td><td><strong>19,800</strong></td><td>100%</td></tr>
+    <tr><td>11</td><td>陈雯</td><td>一组</td><td>-5,560</td><td>12,460</td><td>9,900</td><td><strong>16,800</strong></td><td>133.1%</td></tr>
+    <tr><td>12</td><td>李风华</td><td>一组</td><td>0</td><td>9,900</td><td>0</td><td><strong>9,900</strong></td><td>100%</td></tr>
+    <tr><td>13</td><td>谢海燕</td><td>二组</td><td>3,980</td><td>0</td><td>0</td><td><strong>3,980</strong></td><td>0%</td></tr>
+  </table>
+
+  <div class="insight-box warning">
+    <strong>★ 团队健康度提醒：</strong>
+    ① 谢海燕本月仅¥3,980且全为单品无会员，<strong>新单/续费双挂零</strong>是危险信号；
+    ② 陈雯单品负值-5,560（评标退款等冲减），需关注客户纠纷；
+    ③ 三组周月单品占比20.6%远高于均值（4.7%），说明新业务（AI/证书）开拓能力突出，值得推广经验；
+    ④ 夏兰（分公司负责人）个人业绩为0，需确认管理角色定位。
+  </div>
+</div>
+
+<!-- ===== 三、月度趋势对比分析 ===== -->
+<div class="section">
+  <h2><span class="icon">📈</span>三、月度趋势对比（2026年3-6月）</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>3.1 月度收入走势</h3>
+      <div class="bar-chart">
+        <div class="bar-wrapper">
+          <div class="bar" style="height:100%; background: linear-gradient(180deg, #2980b9, #1a5276);">
+            <span class="bar-label">¥66.14万</span>
+          </div>
+          <span class="x-label">3月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:54%; background: linear-gradient(180deg, #3498db, #2980b9);">
+            <span class="bar-label">¥35.53万</span>
+          </div>
+          <span class="x-label">4月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:48%; background: linear-gradient(180deg, #5dade2, #3498db);">
+            <span class="bar-label">¥31.69万</span>
+          </div>
+          <span class="x-label">5月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:87%; background: linear-gradient(180deg, #e67e22, #d35400);">
+            <span class="bar-label">¥57.88万</span>
+          </div>
+          <span class="x-label">6月</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>3.2 续费率走势</h3>
+      <div class="bar-chart">
+        <div class="bar-wrapper">
+          <div class="bar" style="height:100%; background: #27ae60;">
+            <span class="bar-label">66.7%</span>
+          </div>
+          <span class="x-label">3月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:100%; background: #27ae60;">
+            <span class="bar-label">66.7%</span>
+          </div>
+          <span class="x-label">4月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:84%; background: #e74c3c;">
+            <span class="bar-label">55.9%</span>
+          </div>
+          <span class="x-label">5月</span>
+        </div>
+        <div class="bar-wrapper">
+          <div class="bar" style="height:100%; background: #27ae60;">
+            <span class="bar-label">67.5%</span>
+          </div>
+          <span class="x-label">6月</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table style="margin-top:20px;">
+    <tr><th>指标</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>趋势</th></tr>
+    <tr>
+      <td>到款总额</td>
+      <td>¥661,390</td><td>¥402,060</td><td>¥336,780</td><td>¥537,955</td>
+      <td><span class="tag tag-up">6月反弹</span></td>
+    </tr>
+    <tr>
+      <td>营业总收入</td>
+      <td>¥660,158</td><td>¥355,340</td><td>¥316,880</td><td>¥578,821</td>
+      <td><span class="tag tag-up">+82.6% MoM</span></td>
+    </tr>
+    <tr>
+      <td>新会员收入</td>
+      <td>¥243,560</td><td>¥116,700</td><td>¥125,200</td><td>¥194,420</td>
+      <td><span class="tag tag-up">+55.3%</span></td>
+    </tr>
+    <tr>
+      <td>续费收入</td>
+      <td>¥414,750</td><td>¥217,900</td><td>¥133,650</td><td>¥341,650</td>
+      <td><span class="tag tag-up">+155.6%</span></td>
+    </tr>
+    <tr>
+      <td>单次收入</td>
+      <td>¥0</td><td>¥12,750</td><td>¥25,050</td><td>¥15,410</td>
+      <td><span class="tag tag-down">-38.5%</span></td>
+    </tr>
+    <tr>
+      <td>单品（含AI/证书）</td>
+      <td>¥3,080</td><td>¥20,740</td><td>¥31,000</td><td>¥27,341</td>
+      <td><span class="tag tag-down">-11.8%</span></td>
+    </tr>
+    <tr>
+      <td>月续费率</td>
+      <td>66.67%</td><td>66.67%</td><td>55.88%</td><td>67.50%</td>
+      <td><span class="tag tag-up">恢复向好</span></td>
+    </tr>
+    <tr>
+      <td>应续会员数</td>
+      <td>78</td><td>39</td><td>34</td><td>40</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>月新单数</td>
+      <td>21</td><td>17</td><td>13</td><td>17</td>
+      <td>—</td>
+    </tr>
+  </table>
+
+  <div class="insight-box">
+    <strong>★ 趋势分析：</strong>
+    ① 3月为旺季（年初预算释放+考证季），收入全年高点；
+    ② 4-5月进入传统淡季，5月触底；
+    ③ <strong>6月强势反弹是半年冲刺+集中续费到期的叠加效应</strong>，是否可持续有待观察；
+    ④ 单次收入/单品收入4-5月增长后6月回落，说明会销场次减少影响了一线转化。
+  </div>
+
+  <!-- 会议数据 -->
+  <h3>3.3 6月会议活动详情</h3>
+  <table>
+    <tr><th>日期</th><th>场租</th><th>参会人数</th><th>就餐人数</th><th>餐费</th><th>地点</th><th>售卡情况</th></tr>
+    <tr>
+      <td>6/11-12</td><td>¥6,400/两天</td><td>75→72</td><td>75→72</td><td>¥15,261</td>
+      <td>白金汉爵大酒店（武进经开区）</td>
+      <td>至尊卡¥99,000</td>
+    </tr>
+    <tr>
+      <td>6/25-26</td><td>¥16,000/两天</td><td>232→121</td><td>230→121</td><td>¥33,568</td>
+      <td>志逸酒店（钟楼区星港路）</td>
+      <td>皇冠¥59,800 + 金卡¥39,800 + 银卡¥19,800</td>
+    </tr>
+  </table>
+  <p style="font-size:0.88em; color:var(--text-secondary); margin-top:8px;">
+    📝 6月共举办2场会议（4天），总参会约500人次，场租+餐费约¥7.1万，费用率约12.3%。第二场会议规模（232人）明显大于第一场（75人），但第二天出席率仅52%（121/232），客户粘性待提升。
+  </p>
+</div>
+
+<!-- ===== 四、持有率与续费率分析 ===== -->
+<div class="section">
+  <h2><span class="icon">🔄</span>四、会员持有率与续费率深度分析</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>4.1 6月持有率明细</h3>
+      <table>
+        <tr><th>团队</th><th>期初会员</th><th>应续</th><th>实续</th><th>新会员</th><th>月末会员</th><th>持有率</th><th>本月续费率</th></tr>
+        <tr><td>石刘琴组</td><td>203</td><td>12</td><td>8</td><td>8</td><td>205</td><td>100.99%</td><td>66.67%</td></tr>
+        <tr><td>陈萍组</td><td>268</td><td>21</td><td>16</td><td>7</td><td>270</td><td>100.75%</td><td>76.19%</td></tr>
+        <tr><td>周月组</td><td>78</td><td>7</td><td>3</td><td>2</td><td>75</td><td>96.15%</td><td>42.86%</td></tr>
+        <tr class="total"><td>📌 合计</td><td>549</td><td>40</td><td>27</td><td>17</td><td>550</td><td><strong>100.18%</strong></td><td><strong>67.50%</strong></td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>4.2 累计续费率（3-6月）</h3>
+      <table>
+        <tr><th>指标</th><th>数值</th></tr>
+        <tr><td>累计应续</td><td>191人</td></tr>
+        <tr><td>累计实续</td><td>124人</td></tr>
+        <tr><td>累计新单</td><td>68人</td></tr>
+        <tr><td>累计续费率</td><td><strong>64.92%</strong></td></tr>
+        <tr><td>累计持有率</td><td><strong>100.18%</strong></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="insight-box warning">
+    <strong>★ 续费风险预警：</strong>
+    ① 累计续费率仅64.92%，意味着<strong>超过1/3的到期会员流失</strong>，全年按549人基数推算潜在流失约180+人；
+    ② 周月组本月续费率仅42.86%（7应续仅3实续），需紧急排查客户原因；
+    ③ 持有率保持在100%以上是靠新单（+17）弥补续费流失（-13），属于<span style="color:#e74c3c;">"流血型增长"</span>；
+    ④ 6月应续40人，7月按会员周期推算预计应续约30-35人，是续费关键窗口。
+  </div>
+
+  <h3>4.3 重点客户动态（6月记录）</h3>
+  <table>
+    <tr><th>负责员工</th><th>客户名称</th><th>状态</th></tr>
+    <tr><td>顾太福</td><td>曙光车业</td><td>正常续费（累计82→57）</td></tr>
+    <tr><td>陈萍</td><td>江苏舜天化工仓储有限公司、威博称重</td><td>正常在服</td></tr>
+    <tr><td>刘一丁</td><td>常州燃料有限公司、山清（常州）汽车部件有限公司</td><td>正常在服</td></tr>
+    <tr><td>谢海燕</td><td>昊奕嘉智能装备科技（常州）有限公司</td><td>新单</td></tr>
+    <tr><td>郑婷婷</td><td>江苏沃姆克电子科技有限公司</td><td><span class="tag tag-warn">断了续上</span></td></tr>
+    <tr><td>郑婷婷</td><td>常州恒鼎轨道科技有限公司</td><td>正常在服</td></tr>
+    <tr><td>郑婷婷</td><td>江苏河海新能源技术发展有限公司</td><td>正常在服</td></tr>
+    <tr><td>顾太福</td><td>常州东杰自动化设备有限公司</td><td>正常在服</td></tr>
+    <tr><td>董志云</td><td>江苏克力空调有限公司</td><td>正常在服</td></tr>
+    <tr><td>董志云</td><td>常州中碳新材料科技有限公司</td><td>正常在服</td></tr>
+    <tr><td>董志云</td><td>常州市金坛志诚机械有限公司</td><td>正常在服</td></tr>
+    <tr><td>董志云</td><td>常州泰润塑业有限公司</td><td>正常在服</td></tr>
+  </table>
+</div>
+
+<!-- ===== 五、产品结构分析 ===== -->
+<div class="section">
+  <h2><span class="icon">📦</span>五、产品结构与客单价分析</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>5.1 6月客单价分析</h3>
+      <table>
+        <tr><th>类别</th><th>开票额</th><th>开票数</th><th>票均</th></tr>
+        <tr><td>会员</td><td>¥494,880</td><td>56</td><td><strong>¥8,837</strong></td></tr>
+        <tr><td>非会员</td><td>¥52,505</td><td>11</td><td>¥4,773</td></tr>
+        <tr class="total"><td>分公司整体</td><td>¥547,385</td><td>67</td><td><strong>¥8,170</strong></td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>5.2 部门经理 vs 普通员工</h3>
+      <table>
+        <tr><th>类别</th><th>开票额</th><th>开票数</th><th>票均</th></tr>
+        <tr><td>部门经理</td><td>¥313,685</td><td>42</td><td>¥7,469</td></tr>
+        <tr><td>其他人员</td><td>¥233,700</td><td>25</td><td><strong>¥9,348</strong></td></tr>
+      </table>
+      <p style="font-size:0.85em; color:var(--text-secondary); margin-top:8px;">
+        ⚡ 其他人员票均反超经理25%，可能原因是经理承担更多中小客户服务，而骨干员工聚焦大客户。
+      </p>
+    </div>
+  </div>
+
+  <h3>5.3 单品收入结构（3-6月累计）</h3>
+  <table>
+    <tr><th>单品类型</th><th>金额（元）</th><th>数量</th><th>月均趋势</th></tr>
+    <tr><td>AI管理师/相关</td><td>¥49,378</td><td>13</td><td><span class="tag tag-up">持续增长</span></td></tr>
+    <tr><td>高会/高经</td><td>¥7,430</td><td>2</td><td>波动</td></tr>
+    <tr><td>会计考试（初/中级）</td><td>¥5,007</td><td>2</td><td>6月新增</td></tr>
+    <tr><td>评标专家</td><td>-¥2,980</td><td>-1</td><td><span class="tag tag-down">退款</span></td></tr>
+    <tr><td>咨询</td><td>¥22,280</td><td>—</td><td>稳定</td></tr>
+    <tr><td>内训</td><td>¥20,000</td><td>—</td><td>6月新增</td></tr>
+    <tr><td>其他</td><td>¥43,500</td><td>—</td><td>—</td></tr>
+    <tr class="total"><td>📌 单品合计</td><td>¥144,615</td><td>—</td><td>占累计营业额7.5%</td></tr>
+  </table>
+
+  <div class="insight-box success">
+    <strong>★ 产品机会：</strong>
+    ① AI管理师单品累计¥49,378（占单品总额34.1%），是最具增长潜力的新业务线，契合常州"智改数转"政策方向；
+    ② 内训¥20,000为6月新增，说明企业定制化需求正在浮现；
+    ③ 大成云产品"业绩100%计入分公司，支付30%成本"，净利率70%值得大力推广；
+    ④ 证书类（会计考试+高会）仅¥12,437，作为考证大市，这个渗透率明显偏低。
+  </div>
+</div>
+
+<!-- ===== 六、人员效能分析 ===== -->
+<div class="section">
+  <h2><span class="icon">👥</span>六、人员结构与效能分析</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>6.1 团队工龄结构</h3>
+      <table>
+        <tr><th>工龄段</th><th>人数</th><th>成员</th></tr>
+        <tr><td>5年以上</td><td>11人</td><td>石刘琴、刘一丁、李风华、李永康、樊颜辉、陈萍、谢海燕、顾太福、董志云、郑婷婷、周月</td></tr>
+        <tr><td>3-5年</td><td>2人</td><td>陈雯、孟惠</td></tr>
+        <tr><td>1-3年</td><td>0人</td><td>—</td></tr>
+        <tr><td>1年以内</td><td>0人</td><td>—</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>6.2 入职年份分布</h3>
+      <table>
+        <tr><th>入职时期</th><th>人数</th><th>成员</th></tr>
+        <tr><td>2009-2013</td><td>5人</td><td>石刘琴、周月、陈萍、谢海燕、董志云</td></tr>
+        <tr><td>2014-2017</td><td>2人</td><td>刘一丁、顾太福</td></tr>
+        <tr><td>2018-2020</td><td>4人</td><td>李永康、樊颜辉、李风华、郑婷婷</td></tr>
+        <tr><td>2021-2023</td><td>2人</td><td>陈雯、孟惠</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>6.3 年度累计绩效排名（3-6月累计）</h3>
+  <table>
+    <tr><th>排名</th><th>姓名</th><th>累计营业额</th><th>去年同期</th><th>同比增长</th><th>累计单品</th><th>累计新单</th><th>累计续费</th></tr>
+    <tr><td>🥇</td><td>陈萍</td><td>¥357,580</td><td>¥437,058</td><td><span class="tag tag-down">-18.2%</span></td><td>20,000</td><td>104,930</td><td>232,650</td></tr>
+    <tr><td>🥈</td><td>石刘琴</td><td>¥288,589</td><td>¥358,874</td><td><span class="tag tag-down">-19.6%</span></td><td>20,599</td><td>119,490</td><td>148,500</td></tr>
+    <tr><td>🥉</td><td>周月</td><td>¥232,038</td><td>¥290,610</td><td><span class="tag tag-down">-20.2%</span></td><td>26,698</td><td>81,590</td><td>123,750</td></tr>
+    <tr><td>4</td><td>董志云</td><td>¥203,528</td><td>¥309,420</td><td><span class="tag tag-down">-34.2%</span></td><td>21,328</td><td>69,300</td><td>112,900</td></tr>
+    <tr><td>5</td><td>郑婷婷</td><td>¥121,225</td><td>¥186,499</td><td><span class="tag tag-down">-35.0%</span></td><td>28,650</td><td>30,375</td><td>62,200</td></tr>
+    <tr><td>6</td><td>顾太福</td><td>¥111,500</td><td>¥185,990</td><td><span class="tag tag-down">-40.1%</span></td><td>0</td><td>27,350</td><td>84,150</td></tr>
+    <tr><td>7</td><td>李永康</td><td>¥108,500</td><td>¥164,710</td><td><span class="tag tag-down">-34.1%</span></td><td>8,000</td><td>80,700</td><td>19,800</td></tr>
+    <tr><td>8</td><td>刘一丁</td><td>¥96,575</td><td>¥92,550</td><td><span class="tag tag-up">+4.3%</span></td><td>0</td><td>56,975</td><td>39,600</td></tr>
+    <tr><td>9</td><td>樊颜辉</td><td>¥89,130</td><td>¥72,770</td><td><span class="tag tag-up">+22.5%</span></td><td>6,200</td><td>33,330</td><td>49,600</td></tr>
+    <tr><td>10</td><td>孟惠</td><td>¥89,225</td><td>¥107,825</td><td><span class="tag tag-down">-17.3%</span></td><td>4,680</td><td>31,145</td><td>53,400</td></tr>
+    <tr><td>11</td><td>谢海燕</td><td>¥84,890</td><td>¥138,510</td><td><span class="tag tag-down">-38.7%</span></td><td>8,660</td><td>16,830</td><td>59,400</td></tr>
+    <tr><td>12</td><td>李风华</td><td>¥81,105</td><td>¥125,090</td><td><span class="tag tag-down">-35.2%</span></td><td>9,230</td><td>7,425</td><td>64,450</td></tr>
+    <tr><td>13</td><td>陈雯</td><td>¥74,300</td><td>¥149,960</td><td><span class="tag tag-down">-50.5%</span></td><td>-9,430</td><td>34,230</td><td>49,500</td></tr>
+    <tr class="total"><td>📌 合计</td><td>—</td><td>¥1,938,185</td><td>¥2,619,866</td><td><span class="tag tag-down">-26.0%</span></td><td>144,615</td><td>693,670</td><td>1,099,900</td></tr>
+  </table>
+
+  <div class="insight-box warning">
+    <strong>★ 人员效能关键发现：</strong>
+    ① 全员13人中<strong>仅2人正增长</strong>（樊颜辉+22.5%、刘一丁+4.3%），11人同比下降；
+    ② 降幅最大的三人：陈雯-50.5%、顾太福-40.1%、谢海燕-38.7%，均为老员工，<strong>老员工效能衰减值得关注</strong>；
+    ③ 团队工龄集中在5年以上（11/13），缺少新鲜血液，可能存在组织惰性；
+    ④ 1-3年工龄段完全断层，人才梯队建设是长期隐忧；
+    ⑤ 陈雯累计单品-9,430（评标退款等问题冲减），需排查是否有客户流失风险传导。
+  </div>
+</div>
+
+<!-- ===== 七、常州经济环境分析 ===== -->
+<div class="section">
+  <h2><span class="icon">🏭</span>七、常州市经济环境与行业机遇分析</h2>
+
+  <h3>7.1 常州经济基本面（2025-2026）</h3>
+  <table>
+    <tr><th>维度</th><th>现状</th><th>对财税培训的影响</th></tr>
+    <tr>
+      <td>GDP增长</td>
+      <td>2025年常州GDP突破万亿后维持5-6%中高速增长</td>
+      <td><span class="tag tag-up">利好</span> 企业数量&规模扩大，培训需求底座增长</td>
+    </tr>
+    <tr>
+      <td>产业结构</td>
+      <td>"新能源之都"战略：比亚迪、理想汽车、中创新航等领军企业带动全产业链</td>
+      <td><span class="tag tag-up">重大利好</span> 新能源产业链企业5000+，财税合规需求旺盛</td>
+    </tr>
+    <tr>
+      <td>智改数转</td>
+      <td>政府强力推动制造业智能化改造和数字化转型</td>
+      <td><span class="tag tag-up">利好</span> AI+财务、数字化管理培训天然契合政策方向</td>
+    </tr>
+    <tr>
+      <td>中小企业</td>
+      <td>民营经济活跃，中小制造业企业密集（武进、新北、金坛）</td>
+      <td><span class="tag tag-up">利好</span> 中小企财税外包/培训需求刚性</td>
+    </tr>
+    <tr>
+      <td>财税政策</td>
+      <td>金税四期全面落地，税务合规要求趋严</td>
+      <td><span class="tag tag-up">重大利好</span> 企业财税培训刚需增强</td>
+    </tr>
+    <tr>
+      <td>人才缺口</td>
+      <td>新能源/智能制造复合型财税人才稀缺</td>
+      <td><span class="tag tag-up">利好</span> 高端证书（高会/注会/AI管理师）培训需求上升</td>
+    </tr>
+  </table>
+
+  <h3>7.2 常州区域市场特色</h3>
+  <div class="grid-2">
+    <div>
+      <p><strong>🏗️ 优势产业带：</strong></p>
+      <ul style="padding-left:20px; color:var(--text-secondary);">
+        <li>武进区：高端装备制造、新能源汽车零部件</li>
+        <li>新北区：光伏、碳纤维及复合材料</li>
+        <li>金坛区：动力电池（中创新航总部）</li>
+        <li>钟楼区：现代服务业、数字经济</li>
+        <li>溧阳市：新能源电力、文旅</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>🎯 客户画像特征：</strong></p>
+      <ul style="padding-left:20px; color:var(--text-secondary);">
+        <li>企业家年龄偏大（40-55岁），对传统财税依赖度高</li>
+        <li>财务人员技能更新需求迫切（金税四期、数字化）</li>
+        <li>制造业企业财税复杂度高（成本核算、出口退税）</li>
+        <li>新一代接班人对AI/数字化培训接受度更高</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight-box success">
+    <strong>★ 常州市场判断：</strong>
+    常州作为长三角制造业重镇+新能源之都，经济基本面和政策环境对财税培训行业<strong>整体偏利好</strong>。当前26%的同比下降并非市场萎缩所致，更可能是内部经营节奏和组织效能问题。下半年抓住新能源产业链+金税四期合规两大主线，完全有可能追回差距。
+  </div>
+</div>
+
+<!-- ===== 八、增长建议 ===== -->
+<div class="section">
+  <h2><span class="icon">🚀</span>八、业绩增长可行性建议</h2>
+
+  <p style="margin-bottom: 20px; color: var(--text-secondary);">
+    基于以上数据分析和常州经济环境，提出以下<strong>6条可落地增长策略</strong>，按优先级排序：
+  </p>
+
+  <div class="rec-card">
+    <div class="rec-num">1</div>
+    <div class="rec-content">
+      <h4>🔴 紧急止血：建立续费预警机制，目标续费率提升至75%</h4>
+      <p>
+        <strong>现状：</strong>累计续费率64.92%，每年流失1/3会员。按549人基数，流失约180人/年，按客单价¥8,837计算，年损失约¥159万。<br>
+        <strong>措施：</strong>
+        ① 建立到期前90-60-30天三级续费预警台账；
+        ② 对"应续未续"客户由团队长亲自回访，周会复盘流失原因；
+        ③ 针对周月组（续费率42.86%）进行专项辅导；
+        ④ 推出"提前续费优惠"锁定下半年到期客户（7月预计应续30-35人）。
+        <strong>预期效果：</strong>续费率提升10pp → 年增收约¥50万。
+      </p>
+    </div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-num">2</div>
+    <div class="rec-content">
+      <h4>🟠 单品突破：以AI管理师为拳头产品，抢占"智改数转"政策红利</h4>
+      <p>
+        <strong>现状：</strong>单品仅占7.5%，AI管理师4个月累计¥49,378（13单），但对比常州5000+制造企业基数，渗透率不足0.3%。<br>
+        <strong>措施：</strong>
+        ① 与常州工信局/中小企业服务中心合作，将AI管理师纳入"智改数转"推荐培训目录；
+        ② 打包"AI+财务"与"金税四期合规"推出企业定制套餐；
+        ③ 利用周月的成功经验（单品占比20.6%），在团队内复制推广；
+        ④ 大成云产品70%净利率，每人每月至少推1单作为硬指标。
+        <strong>预期效果：</strong>单品占比提升至15% → 年增收约¥30-50万。
+      </p>
+    </div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-num">3</div>
+    <div class="rec-content">
+      <h4>🟡 激活老员工：差异化激励机制，解决老员工效能衰减</h4>
+      <p>
+        <strong>现状：</strong>谢海燕（-38.7%）、顾太福（-40.1%）、陈雯（-50.5%）等老员工大幅下滑。11/13人同比下降。<br>
+        <strong>措施：</strong>
+        ① 对持续下滑员工进行一对一绩效面谈，诊断是"能力问题"还是"意愿问题"；
+        ② 设立"单品开拓奖""新客开发奖"等专项激励，打破仅靠续费吃老本的惯性；
+        ③ 对陈雯累计单品-9,430的退款情况进行专项审计；
+        ④ 考虑末尾优化：若Q3仍无改善，对谢海燕（6月仅¥3,980）进行岗位调整。
+        <strong>预期效果：</strong>激活3-4名老员工回到增长轨道 → 年增收约¥60-80万。
+      </p>
+    </div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-num">4</div>
+    <div class="rec-content">
+      <h4>🟢 新能源行业深耕：打造垂直行业财税培训标杆</h4>
+      <p>
+        <strong>现状：</strong>当前客户以传统制造业为主（曙光车业、克力空调、泰润塑业等），新能源产业链渗透不足。<br>
+        <strong>措施：</strong>
+        ① 梳理常州新能源产业链图谱（动力电池、光伏、新能源汽车零部件），定向开发客户名单；
+        ② 开发"新能源企业财税合规专项课程"（研发费用加计扣除、出口退税、碳税筹划等）；
+        ③ 与常州新能源汽车研究院、中创新航等龙头企业合作，建立行业标杆案例；
+        ④ 在武进高新区/新北光伏产业园设点或举办专场活动。
+        <strong>预期效果：</strong>新增新能源行业客户50+ → 年增收约¥40-60万。
+      </p>
+    </div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-num">5</div>
+    <div class="rec-content">
+      <h4>🔵 人才梯队建设：打破1-3年工龄断层</h4>
+      <p>
+        <strong>现状：</strong>团队13人中年资5年以上11人（84.6%），无1-3年工龄人员，无1年以内新人。组织缺乏活力和竞争压力。<br>
+        <strong>措施：</strong>
+        ① 下半年招聘2-3名有潜力的新人（优先有制造业背景或财税专业应届生）；
+        ② 实行"师徒制"由Top3员工带教，新人首年不考核利润但考核客户触达量；
+        ③ 新人重点负责新能源/新行业客户开拓，与老员工形成互补而非竞争；
+        ④ 新人加入后形成良性"鲶鱼效应"，激发老员工危机感。
+        <strong>预期效果：</strong>长期人才储备 + 新客户增量 → 年增收约¥20-30万。
+      </p>
+    </div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-num">6</div>
+    <div class="rec-content">
+      <h4>🟣 客户体验升级：提升会议到场率与转化率</h4>
+      <p>
+        <strong>现状：</strong>6月第二场会议第二天出席率仅52%（121/232），大量客户流失在"参会-持续到场"环节。场租+餐费¥7.1万/月，费用率12.3%。<br>
+        <strong>措施：</strong>
+        ① 优化会议内容设计：第一天政策解读+趋势分析，第二天实操落地+一对一咨询，增强第二天吸引力；
+        ② 建立"会前确认→会中签到→会后24小时跟进"标准化流程；
+        ③ 对连续2次未到场客户标记为"高风险流失"，优先安排上门拜访；
+        ④ 尝试"小型精品沙龙"替代部分大型会议，提升互动深度和转化率。
+        <strong>预期效果：</strong>到场率提升至70%+转化率提升 → 年增收约¥15-25万。
+      </p>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top:24px;">
+    <strong>★ 增长潜力汇总：</strong>
+    以上6项措施合计预估年增收约<strong>¥215-315万</strong>，按当前年度化收入约¥380万基数，增长潜力在<strong>56%-83%</strong>之间。其中紧急止血（续费提升）和单品突破是短期内最确定的两项，建议7月立即启动。新能源行业深耕是中长期最具想象空间的方向，符合常州城市发展战略。
+  </div>
+</div>
+
+<!-- ===== 九、总结与展望 ===== -->
+<div class="section">
+  <h2><span class="icon">🎯</span>九、总结与7月工作重点</h2>
+
+  <div class="grid-2">
+    <div>
+      <h3>✅ 6月成绩单</h3>
+      <table>
+        <tr><td>月收入</td><td><strong>¥57.88万</strong>（环比+82.6%）</td></tr>
+        <tr><td>续费率</td><td><strong>67.50%</strong>（环比+11.62pp）</td></tr>
+        <tr><td>持有率</td><td><strong>100.18%</strong>（正增长）</td></tr>
+        <tr><td>会员客单价</td><td><strong>¥8,837</strong></td></tr>
+        <tr><td>Top Sales</td><td>陈萍 ¥139,650</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>⚠️ 核心风险</h3>
+      <table>
+        <tr><td>年度同比</td><td><span style="color:#e74c3c;">-26.02%</span>（缺口¥68.17万）</td></tr>
+        <tr><td>老员工效能</td><td><span style="color:#e74c3c;">11/13人同比下降</span></td></tr>
+        <tr><td>续费流失</td><td><span style="color:#e74c3c;">35%年流失率</span></td></tr>
+        <tr><td>单品占比</td><td><span style="color:#f39c12;">仅7.5%</span></td></tr>
+        <tr><td>人才断层</td><td><span style="color:#f39c12;">1-3年工龄0人</span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;">
+    <h3>📅 7月工作重点清单</h3>
+    <table>
+      <tr><th>优先级</th><th>事项</th><th>责任人</th><th>完成时限</th></tr>
+      <tr><td>🔴 P0</td><td>建立续费预警台账，完成7月应续客户预沟通</td><td>各组长</td><td>7月15日前</td></tr>
+      <tr><td>🔴 P0</td><td>谢海燕、陈雯、顾太福一对一绩效面谈</td><td>夏兰</td><td>7月15日前</td></tr>
+      <tr><td>🟠 P1</td><td>梳理常州新能源产业链目标客户名单100家</td><td>全员</td><td>7月20日前</td></tr>
+      <tr><td>🟠 P1</td><td>AI管理师推广方案制定（含政策对接计划）</td><td>周月牵头</td><td>7月20日前</td></tr>
+      <tr><td>🟡 P2</td><td>7月会议内容优化（提升第二天到场率）</td><td>夏兰</td><td>7月25日前</td></tr>
+      <tr><td>🟡 P2</td><td>新人招聘计划启动（2-3人）</td><td>夏兰</td><td>7月底前</td></tr>
+    </table>
+  </div>
+
+  <div class="insight-box success" style="margin-top:20px;">
+    <strong>🌟 最后的话：</strong>
+    常州分公司是一支经验丰富的老兵团队（平均工龄10年+），6月用¥57.88万的成绩证明了这个团队的战斗力依然在线。当前的核心挑战不是"市场不好"，而是"如何让老团队适应新环境"——新能源产业崛起、金税四期落地、AI技术冲击，这些不是威胁而是<strong>更大的机会</strong>。下半年，关键是<strong>续费止血稳住基本盘，单品突破打开增长极，新能源深耕建立差异化壁垒</strong>。一起加油💪
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<div class="footer">
+  <p>本报告由 cc 基于常州分公司2026年6月实际经营数据编制</p>
+  <p>数据来源：2026年6月常州活动统计表、2026年持有率、6月初分总数据、常州分公司员工业绩表</p>
+  <p>报告日期：2026年7月9日 &nbsp;|&nbsp; 仅供内部经营分析使用</p>
+</div>
+
+</body>
+</html>
