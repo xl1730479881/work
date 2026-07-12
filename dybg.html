@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常州家庭教育+疗愈+学科提升 创业调研报告</title>
+<style>
+  :root {
+    --primary: #2c3e50;
+    --accent: #e67e22;
+    --accent2: #27ae60;
+    --danger: #c0392b;
+    --bg: #f8f9fa;
+    --card: #fff;
+    --border: #dee2e6;
+    --text: #333;
+    --muted: #6c757d;
+    --highlight: #fff3cd;
+    --purple: #8e44ad;
+    --blue: #2980b9;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 20px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* Header */
+  .report-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 50px 40px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .report-header .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .report-header h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .report-header .meta {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* Section cards */
+  section {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--primary);
+  }
+  section h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  section h3 {
+    font-size: 17px;
+    margin: 18px 0 8px;
+    color: var(--primary);
+  }
+  section h2 .icon { font-size: 24px; }
+
+  /* Info cards grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .card-grid.four-col {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .info-card {
+    background: #f0f4f8;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .info-card.highlight-card {
+    background: linear-gradient(135deg, #e8f0fe 0%, #f0e6f6 100%);
+    border: 2px solid var(--purple);
+  }
+  .info-card.ops-card {
+    background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
+    border: 2px solid var(--blue);
+  }
+  .info-card .label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .info-card .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody tr:hover { background: #eef2f7; }
+
+  /* Ratings */
+  .stars { color: var(--accent); letter-spacing: 2px; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px;
+  }
+  .tag-green { background: #d4edda; color: #155724; }
+  .tag-red { background: #f8d7da; color: #721c24; }
+  .tag-yellow { background: var(--highlight); color: #856404; }
+  .tag-blue { background: #d1ecf1; color: #0c5460; }
+  .tag-purple { background: #e8daef; color: #6c3483; }
+  .tag-orange { background: #fdebd0; color: #b9770e; }
+
+  /* Verdict box */
+  .verdict {
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .verdict.positive { background: #d4edda; border: 1px solid #c3e6cb; }
+  .verdict.warning { background: #fff3cd; border: 1px solid #ffeaa7; }
+  .verdict.negative { background: #f8d7da; border: 1px solid #f5c6cb; }
+
+  /* Score bar */
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+  .score-bar .label { width: 100px; font-size: 13px; font-weight: 600; }
+  .score-bar .track {
+    flex: 1;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .score-bar .fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.6s;
+  }
+  .fill-high { background: var(--accent2); }
+  .fill-mid { background: var(--accent); }
+  .fill-low { background: var(--danger); }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #fef9f3;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* Role avatar placeholder */
+  .role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .role-badge .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-ops { background: var(--blue); }
+  .dot-teach { background: var(--purple); }
+  .dot-teach-ft { background: var(--accent2); }
+
+  /* Schedule grid */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  .schedule-grid .s-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .schedule-grid .s-time {
+    background: #f0f4f8;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .schedule-grid .s-cell {
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+  }
+  .s-cell.available { background: #d4edda; color: #155724; }
+  .s-cell.limited { background: #fff3cd; color: #856404; }
+  .s-cell.unavailable { background: #f8d7da; color: #721c24; }
+
+  /* Profit share visual */
+  .profit-visual {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    align-items: stretch;
+  }
+  .profit-slice {
+    flex: 1;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .report-header { padding: 30px 20px; }
+    .report-header h1 { font-size: 24px; }
+    section { padding: 20px; }
+    .schedule-grid { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<header class="report-header">
+  <div class="badge">INVESTOR PERSPECTIVE · 深度调研</div>
+  <h1>常州家庭教育 + 疗愈 + 青少年学科提升<br>创业机会调研与策略报告</h1>
+  <p style="margin-top:12px; font-size:15px; opacity:0.85;">
+    以资深投资人视角，为四位「爱自然生命力」同频合伙人提供赛道研判、模式对标与落地路径
+  </p>
+  <div class="meta">调研日期：2026年7月12日 &nbsp;|&nbsp; 分析师：cc &nbsp;|&nbsp; 目标城市：江苏常州</div>
+</header>
+
+<!-- ========== 执行摘要 ========== -->
+<section>
+  <h2><span class="icon">📋</span> 执行摘要 Executive Summary</h2>
+
+  <div class="verdict positive">
+    <strong>核心判断：这是一个时机正确、赛道正确、团队基因正确的创业方向。</strong><br>
+    常州家庭教育已形成全国标杆的政策生态，疗愈经济正处于年增20%+的爆发期，青少年学业提升在"双减"后正转型为「素养化刚需」。
+    四位来自「爱自然生命力」平台的同频家长，带着理念共识和一线体感进入这个市场，具备天然的信任资产。
+    但——<strong>你们缺的不是热情和能力，而是一个「有根的系统」。</strong>
+  </div>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="label">常州家庭教育政策力度</div>
+      <div class="value">★★★★★</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">全国标杆，"常州范式"被新华日报专题报道</div>
+    </div>
+    <div class="info-card">
+      <div class="label">疗愈经济全国增速</div>
+      <div class="value">CAGR 34.5%</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">核心赛道2025年达1250亿，广义10万亿蓝海</div>
+    </div>
+    <div class="info-card">
+      <div class="label">常州GDP/人均</div>
+      <div class="value">1万亿 / 20万+</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">苏南核心城市，居民付费能力强劲</div>
+    </div>
+    <div class="info-card">
+      <div class="label">缺口评估</div>
+      <div class="value">供给严重不足</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">常州缺乏品牌化「家庭教育+疗愈」综合体</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第一篇：三赛道深度研判 ========== -->
+<section>
+  <h2><span class="icon">🔍</span> 第一篇：三大赛道深度研判</h2>
+
+  <h3>🏠 赛道一：家庭教育（政策红利最强）</h3>
+  <table>
+    <thead><tr><th style="width:20%">维度</th><th>现状与分析</th></tr></thead>
+    <tbody>
+      <tr><td><strong>政策</strong></td><td>常州已建立"普识→精品→特需"三级课程体系，2026年启动全域家长学校建设，财政每年50万专项经费。政府强力推动，市场教育成本极低。</td></tr>
+      <tr><td><strong>需求</strong></td><td>"父母班名额靠抢"——92%参与家长育儿能力提升，刚需明确。但政府供给以普惠为主，<span class="tag tag-yellow">深度个性化服务缺口巨大</span>。</td></tr>
+      <tr><td><strong>竞争</strong></td><td>以政府主导的公益平台（"吾有优学·心家园"覆盖20万+家长）为主，商业机构少、品牌度低，<strong>中高端市场几乎空白</strong>。</td></tr>
+      <tr><td><strong>机会</strong></td><td>政府在做"普识层"，你在做"精品层+特需层"——形成互补而非竞争。<strong>错位打「陪伴式深度服务」</strong>。</td></tr>
+      <tr><td><strong>投资人评分</strong></td><td><span class="stars">★★★★★</span> <strong>9/10</strong> — 政策顺风+需求刚性+竞争洼地</td></tr>
+    </tbody>
+  </table>
+
+  <h3>💚 赛道二：疗愈/心理咨询（增长最快）</h3>
+  <table>
+    <thead><tr><th style="width:20%">维度</th><th>现状与分析</th></tr></thead>
+    <tbody>
+      <tr><td><strong>市场</strong></td><td>中国城镇居民心理亚健康比例73.6%，潜在疗愈需求8.3亿人。全国心理咨询师缺口超50万。江苏省心理咨询企业数全国第3（1.2万家+）。</td></tr>
+      <tr><td><strong>常州</strong></td><td>540万+常住人口，按比例推算潜在需求400万+。制造业职场压力 + 教育资源密集带来的青少年心理需求 + 老龄化银发需求，三浪叠加。</td></tr>
+      <tr><td><strong>趋势</strong></td><td>"疗愈+家庭教育"是2025-2026最热融合赛道。AI心理陪伴、VR疗法等新业态涌现，但<strong>线下深度陪伴式疗愈的信任壁垒更高、不可替代</strong>。</td></tr>
+      <tr><td><strong>风险</strong></td><td>行业标准尚未统一，从业者良莠不齐。需严格区分"心理咨询"与"医疗诊断"的合规边界。<span class="tag tag-red">切忌越界行医</span>。</td></tr>
+      <tr><td><strong>投资人评分</strong></td><td><span class="stars">★★★★☆</span> <strong>8/10</strong> — 增速最快但需专业壁垒，建议以"情绪疗愈/成长陪伴"切入</td></tr>
+    </tbody>
+  </table>
+
+  <h3>📚 赛道三：青少年学科提升（最需策略）</h3>
+  <table>
+    <thead><tr><th style="width:20%">维度</th><th>现状与分析</th></tr></thead>
+    <tbody>
+      <tr><td><strong>政策</strong></td><td>"双减"后学科类机构压减92%+，从12.4万家降至约5000家。纯学科补习的政策风险仍高，<strong>不可碰红线</strong>。</td></tr>
+      <tr><td><strong>转型方向</strong></td><td>K12从"纯学科补习"转向"素养化刚需"——学习力提升、思维训练、学业规划、考试心理调适。高中阶段政策相对宽松，仍是千亿刚需。</td></tr>
+      <tr><td><strong>常州特点</strong></td><td>常州教育资源在江苏属中上水平，家长对教育投入意愿极强。长三角贡献全国52%教培市场份额。</td></tr>
+      <tr><td><strong>机会</strong></td><td><strong>"学习力教练"+"学业规划"+"考试心理"</strong>是合规且有溢价空间的定位。纯补课是红海，学习力赋能是蓝海。</td></tr>
+      <tr><td><strong>投资人评分</strong></td><td><span class="stars">★★★☆☆</span> <strong>6.5/10</strong> — 市场大但政策敏感，需精准定位素养化/学习力方向</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== 第二篇：心然空间模式对标 ========== -->
+<section>
+  <h2><span class="icon">🏢</span> 第二篇：心然空间咨询疗愈 — 经营模式深度对标</h2>
+
+  <div class="info-card" style="margin-bottom:16px;">
+    <div class="label">目标机构</div>
+    <div class="value" style="font-size:18px;">心然空间 · 上海杨浦区平凉路2241号智慧坊7号楼108室</div>
+  </div>
+
+  <h3>实际运营业态还原</h3>
+  <p>经过多源信息交叉验证，该地址所在的<strong>「智慧坊」是由1931年老厂房改造的文创园区</strong>（原上海远东钢丝针布厂），园区配套成熟（星巴克、罗森、健身房等），紧邻地铁12号线隆昌路站。园区内有多个心理咨询/疗愈工作室以<strong>共享咨询室模式</strong>运营。</p>
+
+  <p>搜索到的「心然」品牌是一位<strong>国家二级心理咨询师 + 身心灵整合疗愈师</strong>的个人IP工作室，其公开的服务和定价如下：</p>
+
+  <table>
+    <thead><tr><th>服务类型</th><th>形式</th><th>价格</th><th>特点</th></tr></thead>
+    <tbody>
+      <tr><td>整合式深度对话</td><td>语音/视频</td><td>¥600/小时</td><td>身心灵整合取向</td></tr>
+      <tr><td>文字对话</td><td>线上</td><td>¥200/小时</td><td>灵活轻量</td></tr>
+      <tr><td>塔罗占卜</td><td>线上</td><td>¥199/次（约30分钟）</td><td>引流型轻产品</td></tr>
+      <tr><td>生命陪伴</td><td>面议</td><td>价格商议</td><td>长期深度客户</td></tr>
+      <tr><td>随喜</td><td>—</td><td>随喜定价</td><td>社会责任/引流</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🔬 心然模式的核心要素拆解</h3>
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="label">✅ 值得借鉴</div>
+      <div style="font-size:14px; margin-top:8px;">
+        <strong>1. 个人IP驱动</strong> — 依靠主理人的专业背景（13年体检中心+中医+心理学复合经历）建立信任<br><br>
+        <strong>2. 产品阶梯设计</strong> — 199元塔罗→600元对话→长程陪伴，清晰的低转高链路<br><br>
+        <strong>3. 轻资产运营</strong> — 共享咨询室（月租4000元左右），拎包入驻，零装修投入<br><br>
+        <strong>4. 理念差异化</strong> — "我不解决问题，我陪你看见问题"——不承诺疗效、降低预期管理风险<br><br>
+        <strong>5. 双向筛选机制</strong> — 初次10分钟免费沟通，不匹配则暂停，保护精力和口碑
+      </div>
+    </div>
+    <div class="info-card" style="background:#fff8f0;">
+      <div class="label">⚠️ 需警惕的局限</div>
+      <div style="font-size:14px; margin-top:8px;">
+        <strong>1. 天花板极低</strong> — 纯个人IP模式，收入=主理人时间×单价，无法规模化<br><br>
+        <strong>2. 无陪跑系统</strong> — 只有"对话"没有"体系"，不符合你们"要陪跑"的核心需求<br><br>
+        <strong>3. 无团队杠杆</strong> — 一人工作室，生病/休假即停摆，抗风险能力弱<br><br>
+        <strong>4. 产品单一</strong> — 缺少家庭教育、青少年服务的交叉覆盖<br><br>
+        <strong>5. 品牌资产薄</strong> — 搜索存在感极低，几乎无外部评价，完全依赖口口相传
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict warning" style="margin-top:16px;">
+    <strong>投资人判断：心然空间模式【不适合】直接复制到你们的创业场景。</strong><br>
+    它是一个成功的<strong>「个体户生存模型」</strong>——月入1-3万的自由执业者路径，适合一个人"小而美"地做。
+    但你们是<strong>四人团队 + 追求规模化影响力 + 需要陪跑系统</strong>，对标错了对象会限制你们的想象力。
+    不过它的<strong>产品阶梯设计、共享空间轻资产模式、双向筛选机制</strong>这三样东西，值得你们直接拿来用。
+  </div>
+</section>
+
+<!-- ========== 第三篇：爱自然生命力平台再评估 ========== -->
+<section>
+  <h2><span class="icon">🌿</span> 第三篇：「爱自然生命力」平台再评估——你们的「老东家」能当依托吗？</h2>
+
+  <table>
+    <thead><tr><th style="width:20%">维度</th><th>客观评价</th></tr></thead>
+    <tbody>
+      <tr><td><strong>体系完整度</strong></td><td>★★★★★ 从理论→课程→研学→认证→公益，全链条闭环，国内少有</td></tr>
+      <tr><td><strong>政策背书</strong></td><td>★★★★★ 参标单位、妇联合作、入选国家社科基金子课题</td></tr>
+      <tr><td><strong>覆盖规模</strong></td><td>★★★★☆ 近200城、数千导师、服务超百万家庭</td></tr>
+      <tr><td><strong>收费合理性</strong></td><td>★★☆☆☆ 有用户反馈"两年花了几万"，存在按买课等级分层的质疑</td></tr>
+      <tr><td><strong>孩子端效果</strong></td><td>★★☆☆☆ 第三方评测显示针对孩子具体问题改善率仅47%</td></tr>
+      <tr><td><strong>商业模式争议</strong></td><td>★★☆☆☆ 被质疑存在传销式多层分销特征，部分宣传存在过度包装</td></tr>
+    </tbody>
+  </table>
+
+  <div class="verdict warning">
+    <strong>投资人判断：爱自然生命力是你们灵感的起点，但不能是创业的终点。</strong><br><br>
+    <strong>可以拿来用的：</strong>课程体系的框架思维、家文化+心理学的融合理念、公益讲座的引流模式<br><br>
+    <strong>必须回避的：</strong>多层分销式定价结构、过度承诺的营销话术、轻孩子/重家长的服务失衡<br><br>
+    你们四位在这个平台学习过、同频了，这本身就是一笔<strong>信任资产</strong>——
+    你们比任何人都清楚它的好与不好。创业最好的状态就是：<strong>取它的体系精华，补它的服务短板。</strong>
+  </div>
+</section>
+
+<!-- ========== 第四篇：推荐创业模型 ========== -->
+<section>
+  <h2><span class="icon">🚀</span> 第四篇：推荐创业模型 — 符合「大爱·效果·陪跑」的落地路径</h2>
+
+  <p>基于以上三个赛道的交叉分析，结合你们四位"理念同频、没有依托平台、追求大爱+效果+陪跑"的核心诉求，我给出以下建议：</p>
+
+  <h3>🎯 推荐定位：「家庭教育×成长陪伴」社区化服务综合体</h3>
+
+  <blockquote>
+    不做另一个"爱自然生命力"的分销节点，也不做心然式的个人工作室。<br>
+    做一个<strong>以常州本地家庭为中心的「成长陪跑站」</strong>——集家庭教育指导、情绪疗愈陪伴、青少年学习力提升于一体。
+  </blockquote>
+
+  <h3>📐 建议商业模式架构</h3>
+
+  <table>
+    <thead><tr><th>层级</th><th>产品</th><th>定价区间</th><th>交付形式</th><th>目的</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-blue">引流层</span></td>
+        <td>公益家长沙龙 / 亲子关系工作坊</td>
+        <td>免费~99元</td>
+        <td>线下社区/线上直播</td>
+        <td>建立信任、收集案例、扩大声量</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-green">转化层</span></td>
+        <td>"智慧父母"系统课（8-12次）</td>
+        <td>2980~4980元</td>
+        <td>小班线下+线上社群</td>
+        <td>深度链接、筛选高意向客户</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-yellow">利润层</span></td>
+        <td>1V1家庭成长陪跑（3/6/12个月）</td>
+        <td>9800~39800元</td>
+        <td>定制方案+定期面谈+在线响应</td>
+        <td>核心利润、构建陪跑壁垒</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-red">溢价层</span></td>
+        <td>青少年厌学/躺平专项干预</td>
+        <td>19800~58000元</td>
+        <td>家庭系统介入+学习力重建</td>
+        <td>高客单价、真效果带来口碑裂变</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ====== ★ 核心新增：四人分工与合作模式 ====== -->
+  <h3>🔑 四位合伙人角色分工（根据你的实际情况定制）</h3>
+
+  <div class="verdict positive" style="margin-bottom:16px;">
+    <strong>团队结构总览：</strong>1人全职（全职妈妈，专注讲课+咨询） + 3人兼职（含你在内的有工作者）<br>
+    <strong>核心矛盾：</strong>时间不对称 → 需要用<strong>「角色非对称 + 分配动态平衡」</strong>的合作模式来解决
+  </div>
+
+  <div class="card-grid four-col">
+    <!-- 合伙人 A - cc 运营 -->
+    <div class="info-card ops-card">
+      <div class="role-badge"><span class="dot dot-ops"></span> 合伙人 A — cc</div>
+      <div class="label">🧭 运营/系统 负责人</div>
+      <div style="font-size:13px; margin-top:8px; line-height:1.9;">
+        <span class="tag tag-blue">有工作·兼职</span><br>
+        <strong>核心职责：</strong><br>
+        · 品牌与营销策略制定<br>
+        · 小红书/视频号/社群内容矩阵<br>
+        · 客户获取与转化链路搭建<br>
+        · 合作伙伴（社区/学校）BD<br>
+        · 财务、法务、行政系统搭建<br>
+        · 陪跑系统的SOP化与品控<br>
+        <strong style="display:block;margin-top:6px;">时间投入：</strong>工作日晚上+周末，约15-20h/周<br>
+        <strong style="display:block;margin-top:6px;">核心价值：</strong>你是团队的<strong>"系统架构师"</strong>——没有你，另外三位老师的能力无法被组织成产品。
+      </div>
+    </div>
+
+    <!-- 合伙人 B - 全职妈妈 讲师 -->
+    <div class="info-card highlight-card">
+      <div class="role-badge"><span class="dot dot-teach-ft"></span> 合伙人 B — 全职妈妈</div>
+      <div class="label">🎤 首席讲师 + 1V1 咨询师</div>
+      <div style="font-size:13px; margin-top:8px; line-height:1.9;">
+        <span class="tag tag-green">全职投入</span><br>
+        <strong>核心职责：</strong><br>
+        · 系统课/沙龙主讲（主力）<br>
+        · 1V1家庭陪跑交付（主力）<br>
+        · 课程体系研发（牵头）<br>
+        · 工作日白天客户接待<br>
+        · 家长社群日常维护<br>
+        <strong style="display:block;margin-top:6px;">时间投入：</strong>工作日白天全力投入，约30-40h/周<br>
+        <strong style="display:block;margin-top:6px;">核心价值：</strong>你是团队的<strong>"交付发动机"</strong>——全职时间让你能承接其他三人无法覆盖的工作日白天客户，这是团队运转的核心齿轮。
+      </div>
+    </div>
+
+    <!-- 合伙人 C - 兼职讲师 -->
+    <div class="info-card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); border: 2px solid var(--purple);">
+      <div class="role-badge"><span class="dot dot-teach"></span> 合伙人 C</div>
+      <div class="label">🎤 讲师 + 1V1 咨询师</div>
+      <div style="font-size:13px; margin-top:8px; line-height:1.9;">
+        <span class="tag tag-purple">有工作·兼职</span><br>
+        <strong>核心职责：</strong><br>
+        · 系统课/沙龙主讲（轮值）<br>
+        · 1V1家庭陪跑交付<br>
+        · 特定专题课程研发<br>
+        · 周末工作坊带领<br>
+        <strong style="display:block;margin-top:6px;">时间投入：</strong>工作日晚上+周末，约10-15h/周<br>
+        <strong style="display:block;margin-top:6px;">核心价值：</strong>你是团队的<strong>"专业深度担当"</strong>——在特定领域（如亲子沟通/情绪管理/学业规划）形成你的王牌课程。
+      </div>
+    </div>
+
+    <!-- 合伙人 D - 兼职讲师 -->
+    <div class="info-card" style="background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%); border: 2px solid var(--purple);">
+      <div class="role-badge"><span class="dot dot-teach"></span> 合伙人 D</div>
+      <div class="label">🎤 讲师 + 1V1 咨询师</div>
+      <div style="font-size:13px; margin-top:8px; line-height:1.9;">
+        <span class="tag tag-purple">有工作·兼职</span><br>
+        <strong>核心职责：</strong><br>
+        · 系统课/沙龙主讲（轮值）<br>
+        · 1V1家庭陪跑交付<br>
+        · 特定专题课程研发<br>
+        · 周末工作坊带领<br>
+        <strong style="display:block;margin-top:6px;">时间投入：</strong>工作日晚上+周末，约10-15h/周<br>
+        <strong style="display:block;margin-top:6px;">核心价值：</strong>你是团队的<strong>"服务广度担当"</strong>——与合伙人C形成互补专题，扩大服务覆盖面。
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== ★ 核心新增：合作模式建议 ====== -->
+  <h3>🤝 「1全职 + 3兼职」合作模式深度设计</h3>
+
+  <p>这是你们区别于大多数创业团队的<strong>核心差异化变量</strong>——处理好了是巨大的结构性优势，处理不好会成为分裂的导火索。以下是投资人视角的<strong>三层次合作模型</strong>：</p>
+
+  <!-- 层次一：时间协作机制 -->
+  <h4 style="color:var(--blue); margin-top:20px;">📅 层次一：时间协作机制 — 解决"谁什么时候能干活"</h4>
+
+  <table>
+    <thead><tr><th>时间段</th><th>合伙人 B（全职妈妈）</th><th>合伙人 A/c（有工作）</th><th>合伙人 C/D（有工作）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>工作日白天</strong><br><small>9:00-17:00</small></td>
+        <td style="background:#d4edda;">✅ 核心交付时段<br>1V1咨询 + 课程研发 + 社群维护</td>
+        <td style="background:#f8d7da;">❌ 主业工作</td>
+        <td style="background:#f8d7da;">❌ 主业工作</td>
+      </tr>
+      <tr>
+        <td><strong>工作日晚间</strong><br><small>19:00-21:30</small></td>
+        <td style="background:#d4edda;">✅ 线上社群/晚间沙龙</td>
+        <td style="background:#d4edda;">✅ 运营会议/内容创作/策略</td>
+        <td style="background:#d4edda;">✅ 晚间咨询/课程交付</td>
+      </tr>
+      <tr>
+        <td><strong>周六</strong><br><small>全天</small></td>
+        <td style="background:#d4edda;">✅ 系统课/工作坊主力</td>
+        <td style="background:#d4edda;">✅ 现场运营+客户接待</td>
+        <td style="background:#d4edda;">✅ 系统课/工作坊轮值</td>
+      </tr>
+      <tr>
+        <td><strong>周日</strong><br><small>全天</small></td>
+        <td style="background:#fff3cd;">⚠️ 家庭日/弹性安排</td>
+        <td style="background:#d4edda;">✅ 团队战略+复盘+内容</td>
+        <td style="background:#fff3cd;">⚠️ 弹性安排</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <strong>★ 关键洞察：</strong>全职妈妈（合伙人B）的工作日白天是团队的<strong>战略资产</strong>。
+    绝大多数兼职创业团队无法承接工作日白天的客户需求，而你们可以——这直接打开了「全职妈妈客户」和「自由职业者客户」的市场。
+    cc的运营工作大部分可以<strong>异步完成</strong>（内容创作、数据分析、SOP撰写），不需要固定在线时间，这完美适配兼职状态。
+  </blockquote>
+
+  <!-- 层次二：分配机制 -->
+  <h4 style="color:var(--accent2); margin-top:20px;">💰 层次二：收益分配机制 — 解决"谁该拿多少"</h4>
+
+  <p>这是合伙人分裂的第一大导火索。投资人建议采用<strong>「底薪+提成+分红」三层结构</strong>，适配非对称投入：</p>
+
+  <table>
+    <thead><tr><th>分配层</th><th>适用对象</th><th>计算方式</th><th>设计逻辑</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-green">基础补贴</span></td>
+        <td><strong>仅合伙人B（全职妈妈）</strong></td>
+        <td>月固定 2000~3000元<br><small>从公司营收中优先列支</small></td>
+        <td>全职投入承担了机会成本，需要基本生活保障。金额不高（市场薪资的1/3左右），体现"创业共担"而非"雇佣"。</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-blue">交付提成</span></td>
+        <td><strong>四位均适用</strong></td>
+        <td>1V1咨询/陪跑收入的<strong>50%~60%</strong>归交付人<br>系统课讲课费<strong>200~400元/课时</strong></td>
+        <td>"谁交付谁受益"——多劳多得，解决兼职者"干了活没回报"的不公平感。全职妈妈自然交付更多，收入也相应更高。</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-yellow">季度分红</span></td>
+        <td><strong>四位均适用</strong></td>
+        <td>公司净利润的剩余部分，按<strong>约定股权比例</strong>分配</td>
+        <td>体现"品牌共有、风险共担"。建议初期股权：全职妈妈25% + 三位兼职各25%（均分），或依据实际贡献动态调整。</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-orange">运营补偿</span></td>
+        <td><strong>仅合伙人A（cc）</strong></td>
+        <td>从公司营收中提取<strong>5%~8%</strong>作为运营管理费</td>
+        <td>cc的运营工作不直接产生"交付提成"，但持续为整个系统创造价值。这条机制确保你的隐性劳动被看见、被补偿。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="profit-visual">
+    <div class="profit-slice" style="background:var(--accent2); flex:2;">
+      💚 交付提成 ≈ 50-55%<br><small>谁干活谁拿走</small>
+    </div>
+    <div class="profit-slice" style="background:var(--blue); flex:1;">
+      💙 公司留存 ≈ 30-35%<br><small>房租/营销/发展基金</small>
+    </div>
+    <div class="profit-slice" style="background:var(--purple); flex:1;">
+      💜 运营补偿 ≈ 5-8%<br><small>cc系统维护</small>
+    </div>
+    <div class="profit-slice" style="background:var(--accent); flex:1;">
+      🧡 基础补贴 ≈ 5-7%<br><small>全职妈妈保障</small>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:var(--muted);">▲ 收入分配流向示意图（占月营收比例参考）</p>
+
+  <!-- 层次三：决策机制 -->
+  <h4 style="color:var(--purple); margin-top:20px;">🗳️ 层次三：决策治理机制 — 解决"意见不合怎么办"</h4>
+
+  <table>
+    <thead><tr><th>决策类型</th><th>决策机制</th><th>举例</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-green">日常运营决策</span></td>
+        <td>各角色<strong>自主决策</strong>，在自己的职责范围内有最终决定权</td>
+        <td>cc决定营销渠道选择；讲师决定课程内容和风格</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-blue">重大业务决策</span></td>
+        <td><strong>四人投票，多数通过（3:1即可）</strong></td>
+        <td>新开产品线、定价调整、合作方选择</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-yellow">战略级决策</span></td>
+        <td><strong>四人全票通过</strong>，一人否决即搁置</td>
+        <td>股权变更、大额投资、品牌更名、关闭业务</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-red">僵局破解</span></td>
+        <td>引入一位<strong>外部顾问</strong>（如行业前辈/律师）作为第五票</td>
+        <td>四人2:2平局且无法说服对方时触发</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 四人不均等投入的风险提示 -->
+  <div class="verdict warning" style="margin-top:20px;">
+    <strong>⚠️ 「1全职+3兼职」模式的特有风险 & 应对：</strong><br><br>
+    <strong>风险1：全职妈妈感觉"我付出最多却拿一样"</strong><br>
+    → 应对：交付提成制天然让它不成问题。全职妈妈交付的1V1咨询和课程最多，提成收入自然最高。<br><br>
+    <strong>风险2：兼职者感觉"我下班还要干活太累"</strong><br>
+    → 应对：前6个月为"验证期"，每人投入可弹性；若6个月后跑通PMF仍有成员持续无法投入，启动退出机制。<br><br>
+    <strong>风险3：有工作的人主业变动（升职/裁员/调动）</strong><br>
+    → 应对：合伙人协议中预设"角色转换条款"——若某位兼职者未来想全职加入，或全职者想回归兼职，如何重新协商分配比例。
+  </div>
+
+  <h3>🏗️ 「陪跑系统」的具体设计</h3>
+  <p>这是你们区别于市场上90%竞品的核心壁垒。陪跑不是一个口号，而是一个可交付的系统：</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>入班评估（Week 0）</strong><br>
+      家庭系统评估 → 定制陪跑方案 → 设定可量化目标（如亲子冲突频次、孩子作息规律度等）<br>
+      <span class="tag tag-green">交付人：任意一位讲师合伙人</span>
+    </div>
+    <div class="timeline-item">
+      <strong>深度干预（Month 1-3）</strong><br>
+      每周1次线下深度会谈（家长/孩子交替） + 每周社群主题打卡 + 每两周家庭作业复盘<br>
+      <span class="tag tag-green">交付人：讲师合伙人轮值，cc负责社群打卡系统搭建</span>
+    </div>
+    <div class="timeline-item">
+      <strong>巩固强化（Month 4-6）</strong><br>
+      每两周1次线下会谈 + 月度家庭成长报告 + 家长成长小组互助会<br>
+      <span class="tag tag-green">交付人：全职妈妈主力，兼职讲师辅助</span>
+    </div>
+    <div class="timeline-item">
+      <strong>结伴同行（Month 7-12）</strong><br>
+      每月1次维护性会谈 + 季度家庭成长复盘 + 年度结业仪式 & 校友社群<br>
+      <span class="tag tag-green">交付人：cc运营校友社群 + 讲师轮值</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第五篇：风险与落地建议 ========== -->
+<section>
+  <h2><span class="icon">⚖️</span> 第五篇：风险矩阵与落地路线图</h2>
+
+  <h3>风险矩阵</h3>
+  <table>
+    <thead><tr><th>风险类型</th><th>等级</th><th>具体描述</th><th>应对策略</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>合规风险</td>
+        <td><span class="tag tag-red">高</span></td>
+        <td>疗愈/心理服务涉及医疗诊断红线；学科辅导涉及双减政策红线</td>
+        <td>明确经营范围："教育咨询"+"心理咨询（非医疗）"+"文化艺术交流"。绝不使用"治疗""矫正"等医疗用语。</td>
+      </tr>
+      <tr>
+        <td>专业风险</td>
+        <td><span class="tag tag-yellow">中高</span></td>
+        <td>团队可能缺乏系统的心理学/教育学专业资质</td>
+        <td>创业前期同步补资质：家庭教育指导师（人社认证）、中科院心理所心理咨询师基础培训。必要时引入专业顾问。</td>
+      </tr>
+      <tr>
+        <td>信任风险</td>
+        <td><span class="tag tag-yellow">中</span></td>
+        <td>新品牌无历史口碑，家长决策周期长</td>
+        <td>前期以公益/低价建立案例池，用真实家庭转变故事做信任资产。前10个家庭做到极致。</td>
+      </tr>
+      <tr>
+        <td>团队风险</td>
+        <td><span class="tag tag-yellow">中</span></td>
+        <td>四人合伙，1全职+3兼职模式下投入不均、机会成本不同</td>
+        <td>创业前签署《合伙人协议》，明确股权、分工、退出机制、角色转换条款。每月一次合伙人战略日（建议周日晚上）。</td>
+      </tr>
+      <tr>
+        <td>现金流风险</td>
+        <td><span class="tag tag-blue">低中</span></td>
+        <td>轻资产模式初始投入可控，但回本周期可能6-12个月</td>
+        <td>首年预算控制在15-25万（场地+基础装修+运营）。三位有工作的合伙人保留主业收入，全职妈妈的基础补贴从启动资金中预留6个月。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>🗺️ 建议落地路线图（12个月）</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>Phase 0：筹备期（第1-2个月）</strong><br>
+      注册公司（个体工商户或有限公司）→ 选定场地（建议常州新北/天宁/武进核心区共享办公/社区空间）→ <strong>签署四人合伙协议</strong>（含股权、分工、退出、角色转换条款）→ 完成第一版课程体系设计 → 各自启动相关资质学习 → cc搭建品牌基础系统（公众号/小红书/社群SOP）
+    </div>
+    <div class="timeline-item">
+      <strong>Phase 1：种子期（第3-5个月）</strong><br>
+      启动公益家长沙龙（每月2场，社区/学校合作，<strong>由全职妈妈合伙人主导工作日白天场次</strong>）→ 积累前20个种子家庭 → 打磨"智慧父母"系统课 → 建立小红书/视频号内容矩阵 → 目标：积累10个付费陪跑客户
+    </div>
+    <div class="timeline-item">
+      <strong>Phase 2：验证期（第6-9个月）</strong><br>
+      跑通产品阶梯全链路 → 收集前30个家庭的陪跑数据与转变故事 → 迭代课程体系 → 开始与常州本地学校/社区建立稳定合作关系 → 目标：月营收稳定3-5万，全职妈妈合伙人实现基本收入保障
+    </div>
+    <div class="timeline-item">
+      <strong>Phase 3：增长期（第10-12个月）</strong><br>
+      建立客户转介绍机制 → 培养第一批"家长推广大使" → 探索青少年学习力提升产品线 → <strong>评估是否需要引入第二位全职合伙人</strong> → 目标：月营收稳定6-10万，正向现金流，三位兼职合伙人获得可观副业收入
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第六篇：最终评分 ========== -->
+<section>
+  <h2><span class="icon">🏆</span> 第六篇：综合决策评分卡</h2>
+
+  <table>
+    <thead><tr><th>维度</th><th>权重</th><th>评分</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>赛道热度</td><td>20%</td><td>8.5/10</td><td>家庭教育+疗愈双赛道均处于高速增长期，政策顺风</td></tr>
+      <tr><td>常州市场匹配度</td><td>20%</td><td>9.0/10</td><td>政府强力推动家庭教育，商业供给不足，中高端空白</td></tr>
+      <tr><td>团队基因</td><td>15%</td><td>8.0/10</td><td>理念同频是核心优势，1全职+3兼职结构合理覆盖时间窗口；运营+讲师的能力互补格局清晰</td></tr>
+      <tr><td>商业模式可行性</td><td>20%</td><td>8.0/10</td><td>轻资产+产品阶梯+陪跑壁垒+非对称协作机制，路径清晰；早期获客是关键挑战</td></tr>
+      <tr><td>竞争壁垒</td><td>15%</td><td>7.0/10</td><td>陪跑系统是差异化核心，全职妈妈的工作日交付能力是结构性壁垒</td></tr>
+      <tr><td>退出/扩展潜力</td><td>10%</td><td>6.5/10</td><td>可复制到苏锡常其他城市，但规模化依赖人才培养体系</td></tr>
+      <tr style="background:#e8f5e9; font-weight:700;">
+        <td>加权总分</td><td>100%</td><td style="font-size:20px;">8.0/10</td><td>值得启动，建议以最小可行规模起步</td></tr>
+    </tbody>
+  </table>
+
+  <div class="verdict positive" style="margin-top:20px;">
+    <strong>最终投资建议：GO — 建议启动，但以最小可行规模起步。</strong><br><br>
+    <strong>核心理由：</strong><br>
+    1. 时机正确 — 常州家庭教育政策生态全国领先，你们的进入有"顺风车"可搭<br>
+    2. 赛道正确 — 家庭教育+疗愈+学习力的交叉地带，是常州商业供给的盲区<br>
+    3. 团队基因正确 — 四人同频、角色互补（运营系统+三大讲师），1全职+3兼职结构完美覆盖工作日+周末全时段<br>
+    4. 风险可控 — 轻资产起步（15-25万启动资金），6-12个月可验证PMF<br>
+    5. 合作模式清晰 — 三层分配机制（基础补贴+交付提成+季度分红）解决了非对称投入的公平性问题<br><br>
+    <strong>核心风险提示：</strong><br>
+    · 不要让"爱自然生命力"的模式限制你们的想象力——你们要做的是更落地的、更陪伴的、更有效果的本地化版本<br>
+    · 不要让"大爱"变成"免费"——商业可持续性是实现大爱的前提，敢于为价值定价<br>
+    · 不要四个人什么都做——前6个月聚焦一个产品（建议：1V1家庭陪跑），极致打磨后再扩展<br>
+    · 不要回避"不公平感"——<strong>每月一次合伙人复盘会</strong>，专门讨论投入度和分配感知，把矛盾消灭在萌芽状态
+  </div>
+</section>
+
+<!-- ========== 附录 ========== -->
+<section>
+  <h2><span class="icon">📎</span> 附录：推荐资源与下一步行动</h2>
+
+  <h3>推荐参考平台/品牌</h3>
+  <table>
+    <thead><tr><th>品牌</th><th>值得参考的点</th><th>不适合你们的地方</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>咘特家庭教育</strong></td>
+        <td>标准化加盟体系、家庭教育指导师培训认证</td>
+        <td>加盟费16万+，自由度低</td>
+      </tr>
+      <tr>
+        <td><strong>宝葫芦·爱学习实验室</strong></td>
+        <td>脑科学+AI设备，2人即可开业、10天筹备</td>
+        <td>偏技术和设备驱动，缺少人文温度</td>
+      </tr>
+      <tr>
+        <td><strong>芜湖社区社会企业模式</strong></td>
+        <td>"公益低偿+反哺循环"，社区信任基础好</td>
+        <td>规模小，依赖社区资源置换</td>
+      </tr>
+      <tr>
+        <td><strong>心然空间（上海）</strong></td>
+        <td>个人IP打造、产品阶梯、轻资产共享空间</td>
+        <td>无陪跑系统、无团队、无法规模化</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>即刻可做的下一步</h3>
+  <ol style="padding-left:20px; line-height:2.2;">
+    <li><strong>本周：</strong>四人开一次正式战略会，用本报告作为讨论底稿，重点讨论：每个人的真实可用时间、对收入的第一年预期、对"全职妈妈基础补贴"金额的共识</li>
+    <li><strong>两周内：</strong>实地走访常州3-5个家庭教育/心理咨询工作室，感受本地竞争格局和定价水平</li>
+    <li><strong>一个月内：</strong>完成工商注册、选定场地、签署四人合伙协议（务必包含退出条款和角色转换条款）、确定品牌名称</li>
+    <li><strong>两个月内：</strong>举办第一场公益家长沙龙（目标：到场15-20位家长），收集真实需求反馈；cc同步完成品牌基础系统搭建</li>
+    <li><strong>持续：</strong>全员各自启动相关专业学习和资质考取（家庭教育指导师/心理咨询师基础培训），全职妈妈合伙人优先完成</li>
+  </ol>
+</section>
+
+<footer class="report-footer">
+  <p>本报告由 cc 基于公开信息调研整理，仅供参考，不构成正式投资建议。</p>
+  <p>数据来源：常州市政府官网、新华日报、行业研究报告、公开工商信息、平台用户评价</p>
+  <p>2026年7月12日 · 常州</p>
+  <p style="margin-top:16px; font-size:16px;">✨ 志同者，不以山海为远；道合者，不以荆棘为碍 ✨</p>
+</footer>
+
+</div>
+</body>
+</html>
