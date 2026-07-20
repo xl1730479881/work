@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永忠工程管理（集团）有限公司 — 财税风险梳理及规范建议报告</title>
+    <style>
+        /* ===== 全局与字体 ===== */
+        :root {
+            --primary: #1a3a5c;
+            --accent: #c9a84c;
+            --bg: #fafaf8;
+            --paper: #ffffff;
+            --text: #2c2c2c;
+            --text-light: #555;
+            --border: #e0ded5;
+            --warn-bg: #fef9e7;
+            --warn-border: #e6c94d;
+            --info-bg: #eaf2f8;
+            --info-border: #7fb3d8;
+            --danger-bg: #fdedec;
+            --danger-border: #e6b0aa;
+            --success-bg: #eafaf1;
+            --success-border: #82cfa0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --radius: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+            background: #e8e6df;
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 页面容器 ===== */
+        .page {
+            max-width: 820px;
+            margin: 32px auto;
+            background: var(--paper);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+            border-radius: 2px;
+            padding: 60px 72px 72px;
+        }
+
+        @media print {
+            body { background: #fff; }
+            .page {
+                max-width: 100%;
+                margin: 0;
+                box-shadow: none;
+                padding: 40px 48px 48px;
+                page-break-after: always;
+            }
+        }
+
+        @media screen and (max-width: 860px) {
+            .page { margin: 0; padding: 32px 24px 40px; }
+        }
+
+        /* ===== 封面区域 ===== */
+        .cover {
+            text-align: center;
+            padding: 48px 0 36px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 40px;
+        }
+
+        .cover-company {
+            font-size: 17px;
+            color: var(--text-light);
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+        }
+
+        .cover-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .cover-subtitle {
+            font-size: 16px;
+            color: #777;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: var(--warn-bg);
+            border: 1px solid var(--warn-border);
+            color: #8a6d14;
+            font-size: 13px;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-top: 28px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== 核心提醒框 ===== */
+        .alert-box {
+            background: var(--warn-bg);
+            border-left: 4px solid var(--warn-border);
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            color: #7d6210;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .alert-box .alert-body {
+            color: #6b5512;
+            font-size: 14.5px;
+            line-height: 1.9;
+        }
+
+        .alert-box .alert-tag {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid var(--accent);
+            color: #8a6d14;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== 章节标题 ===== */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 48px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            letter-spacing: 1px;
+        }
+
+        /* ===== 子标题 ===== */
+        .sub-title {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 36px 0 14px;
+            padding-left: 12px;
+            border-left: 3px solid var(--accent);
+            line-height: 1.5;
+        }
+
+        /* ===== 正文段落 ===== */
+        .para {
+            margin-bottom: 14px;
+            text-indent: 2em;
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        .para.no-indent { text-indent: 0; }
+
+        /* ===== 列表项 ===== */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 16px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding: 4px 0 4px 20px;
+            margin-bottom: 4px;
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ===== 建议操作卡片 ===== */
+        .action-card {
+            background: var(--info-bg);
+            border: 1px solid var(--info-border);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            margin: 16px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .action-card .card-icon {
+            font-size: 20px;
+            margin-right: 6px;
+        }
+
+        .action-card .card-label {
+            font-weight: 700;
+            color: #1a5276;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .action-card .card-body {
+            color: #2c3e50;
+            font-size: 14.5px;
+            line-height: 1.9;
+        }
+
+        /* ===== 政策依据框 ===== */
+        .policy-box {
+            background: #f8f9fa;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .policy-box .policy-label {
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .policy-box .policy-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ===== 案例提示框 ===== */
+        .case-alert {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger-border);
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .case-alert .case-label {
+            font-weight: 700;
+            color: #943126;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .case-alert .case-body {
+            font-size: 14px;
+            color: #7b241c;
+            line-height: 1.8;
+        }
+
+        /* ===== 七事项编号标签 ===== */
+        .item-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 14px;
+            border-radius: 14px;
+            letter-spacing: 1px;
+            margin-right: 6px;
+        }
+
+        /* ===== 高亮关键词 ===== */
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #f9e79f 60%);
+            padding: 0 2px;
+        }
+
+        .amount {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ===== 分隔线 ===== */
+        .divider {
+            border: none;
+            border-top: 1px dotted var(--border);
+            margin: 40px 0;
+        }
+
+        /* ===== 结论区域 ===== */
+        .conclusion-box {
+            background: var(--success-bg);
+            border: 1px solid var(--success-border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+
+        .conclusion-box .conclusion-title {
+            font-weight: 700;
+            color: #1e6e3e;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .conclusion-box .conclusion-body {
+            color: #2c5e3e;
+            font-size: 14.5px;
+            line-height: 1.9;
+        }
+
+        /* ===== 原则高亮条 ===== */
+        .principle-bar {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 14px 24px;
+            margin: 20px 0;
+            border-radius: var(--radius);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            letter-spacing: 1px;
+        }
+
+        /* ===== 表格 ===== */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .info-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .info-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .info-table tr:nth-child(even) td {
+            background: #fcfcf9;
+        }
+
+        .info-table .num {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        /* ===== 管理要点总结 ===== */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        @media screen and (max-width: 600px) {
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+
+        .summary-item {
+            background: #fafaf8;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+        }
+
+        .summary-item .summary-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .summary-item .summary-text {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ==================== 封面 ==================== -->
+    <div class="cover">
+        <div class="cover-company">永忠工程管理（集团）有限公司</div>
+        <h1 class="cover-title">财税风险梳理及规范建议报告</h1>
+        <p class="cover-subtitle">基于发票数据、纳税申报数据及财务报表的初步审阅意见</p>
+        <div class="cover-badge">&#128274; 高级财务咨询师内部意见 &nbsp;｜&nbsp; 供管理层会议讨论</div>
+    </div>
+
+    <!-- ==================== 核心提醒 ==================== -->
+    <div class="alert-box">
+        <div class="alert-title">&#9888;&#65039; 核心提醒</div>
+        <div class="alert-body">
+            <strong>研发费用 <span class="amount">1,240 万元</span></strong> 为本次审阅中最需优先核实和补强证据链的事项。其余涉票、所得税调整、进项管理及总分机构事项，同样需要由<strong>业务、财务、行政采购</strong>共同参与核对。
+        </div>
+        <span class="alert-tag">优先处理</span>
+    </div>
+
+    <!-- ==================== 七大事项速览 ==================== -->
+    <h2 class="section-title">管理层先抓住的七件事</h2>
+
+    <div class="summary-grid">
+        <div class="summary-item">
+            <div class="summary-num">01</div>
+            <div class="summary-text"><strong>研发费用约1,240万元</strong> — 补全项目、人员、过程、投入、成果五维证据链</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">02</div>
+            <div class="summary-text"><strong>工资等历史调增约427万元</strong> — 逐项找依据，建复核台账，按政策追补</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">03</div>
+            <div class="summary-text"><strong>个体户集中开票、同IP/MAC</strong> — 做实独立性、真实性、交付验收</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">04</div>
+            <div class="summary-text"><strong>增值税税负率约4.5%</strong> — 建四本台账，管住进项、拿回应抵</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">05</div>
+            <div class="summary-text"><strong>异常发票、走逃线索及票据错配</strong> — 逐票逐项排雷，保全交易证据</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">06</div>
+            <div class="summary-text"><strong>总分机构与小微优惠</strong> — 先看清集团组织架构，再谈节税合规</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-num">07</div>
+            <div class="summary-text"><strong>政府补助约90余万元</strong> — 调取补助文件，判断税务处理方式</div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ==================== 第一节 ==================== -->
+    <h2 class="section-title">一、先说明本次报告的边界</h2>
+
+    <p class="para">本报告<strong>不是</strong>对企业既往经营或任何人员作出违法判断，更<strong>不是</strong>对财务团队进行批评。相反，本次梳理的目的，是借助现有数据先把可能影响企业合规、税负和管理效率的事项摆出来，让管理层和业务部门共同补资料、讲清业务、把流程做扎实。</p>
+
+    <p class="para">由于本次仅审阅了<strong>发票数据、税务申报数据和财务报表</strong>，未取得并逐笔审阅合同、立项资料、工时记录、资金流水、交付成果、验收资料、完整总账及凭证，因此，报告中的"风险点""异常线索""建议核查"均应理解为需要进一步核实的管理关注事项，不能直接等同于事实认定或税务处理结论。</p>
+
+    <p class="para">后续所有处理应坚持一个标准：<span class="highlight">业务真实、资料完整、金额匹配、责任清晰、账税一致</span>。凡是能证明真实发生的事项，就应尽快把证据补齐并归档；凡是暂时解释不清的事项，先核实、再判断、再处理。</p>
+
+    <!-- ==================== 第三节 ==================== -->
+    <h2 class="section-title">二、问题怎么理解、资料怎么补、管理怎么做</h2>
+
+    <!-- 事项 1：研发费用 -->
+    <div class="sub-title"><span class="item-badge">事项一</span> 研发费用约1,240万元：先把"研发到底做了什么"讲明白</div>
+
+    <p class="para">研发费用不是不能列支，更不是工程咨询企业就不能享受相关政策。真正的关键在于：<strong>项目是否属于研发活动</strong>，<strong>费用是否真实发生</strong>，人员和投入是否归属到具体项目，最终是否有过程记录和阶段成果可以还原。仅有会计科目、发票或申报表，通常不足以支撑大额研发费用及相关优惠。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128221; 建议企业按项目补齐七类资料</div>
+        <div class="card-body">
+            ① 立项依据、技术目标和可行性分析<br>
+            ② 研发团队名单、岗位职责和工时分配<br>
+            ③ 过程记录、测试记录、会议纪要和阶段报告<br>
+            ④ 材料、外协、设备使用等投入凭据及领用/使用记录<br>
+            ⑤ 阶段成果、技术指标、样品/系统截图、知识产权或结题材料<br>
+            ⑥ 研发费用辅助账及分配依据<br>
+            ⑦ 企业所得税申报表与辅助账的勾稽说明
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128101; 人工费用尤其要单独说清</div>
+        <div class="card-body">
+            研发人员是否真实参与项目、参与比例如何确定、工资社保如何分摊、工时记录是否与项目周期一致。兼职研发人员不能只按岗位名称或年末一次性比例分摊。
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128172; 管理层要定一个原则</div>
+        <div class="card-body">
+            研发资料由<strong>技术/业务部门提供事实基础</strong>，财务负责归集和申报复核；不能让财务部门单独"补材料"。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策依据</div>
+        <div class="policy-text">
+            财税〔2015〕119号对研发活动和不适用范围作出规定；国家税务总局公告2015年第97号、2017年第40号对研发费用归集及管理要求作出规定；财政部、税务总局公告2023年第7号明确，自2023年1月1日起，符合条件的研发费用可按规定享受100%加计扣除。企业享受优惠实行<strong>"真实发生、自行判别、申报享受、相关资料留存备查"</strong>。
+        </div>
+    </div>
+
+    <div class="case-alert">
+        <div class="case-label">&#9888;&#65039; 案例提示</div>
+        <div class="case-body">
+            国家税务总局于2025年5月通报的<strong>嘉善景盛混凝土制品有限公司</strong>案件中，企业研发项目缺少真实创新与过程资料，被查实存在虚构研发项目、违规享受加计扣除情形。该案例提醒我们：大额研发投入必须能够从<strong>项目、人员、过程、投入和成果</strong>五个维度相互印证。
+        </div>
+    </div>
+
+    <!-- 事项 2：工资历史调增 -->
+    <div class="sub-title"><span class="item-badge">事项二</span> 工资等历史调增约427万元：不是马上"调回来"，而是逐项找依据</div>
+
+    <p class="para">从申报数据看，历史上存在工资等项目调增约<span class="amount">427万元</span>、后续未见相应调减的线索。该金额<strong>不等于</strong>必然可以调减的金额，更<strong>不等于</strong>退税额。是否能够追补，取决于支出是否真实发生、是否取得合规凭证、原调增原因是否已消除、所属年度及追补期限是否符合规定。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128203; 建议建立"历史调增复核台账"</div>
+        <div class="card-body">
+            至少包含：所属年度、项目名称、原调增金额、调增原因、现有资料、后补资料、是否已付款/已发放、是否已代扣代缴、政策依据、拟处理意见、复核人和审批人。
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128269; 优先核实工资类项目</div>
+        <div class="card-body">
+            劳动合同/聘用资料、工资表、银行发放流水、个税申报、社保缴纳、人员在岗或劳务交付资料，以及原调增时的具体原因。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策依据</div>
+        <div class="policy-text">
+            国家税务总局公告2012年第15号第六条规定，对以前年度实际发生、按规定应扣未扣或少扣的支出，企业专项申报及说明后，可追补至发生年度扣除；追补确认期限一般<strong>不得超过5年</strong>。多缴企业所得税可按规定抵扣、递延抵扣或申请退税。
+        </div>
+    </div>
+
+    <!-- 事项 3：个体户集中开票 -->
+    <div class="sub-title"><span class="item-badge">事项三</span> 个体工商户集中开票、同IP/MAC：不要先下结论，但必须把独立性和真实性做实</div>
+
+    <p class="para">同IP、同MAC、同一网络环境、主体集中开票等，是税务风险识别中常见的关注线索，但<strong>不能仅凭这些数据直接认定存在问题</strong>。企业真正需要自证的是：每一个个体工商户是否独立经营；交易是否有独立商业目的；服务是否真实交付；定价是否合理；资金是否真实流转；开票主体与实际履约主体是否一致。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128188; 把"个体户管理"从财务末端拉到业务前端</div>
+        <div class="card-body">
+            • 业务部门在合作前说明采购/服务必要性<br>
+            • 采购或业务负责人留存询价、比选或定价依据<br>
+            • 合同明确服务内容、成果标准和验收方式<br>
+            • 付款前由业务确认交付<br>
+            • 财务再审核票、合同、付款、验收是否能相互勾稽
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128270; 对高风险明细做重点复核</div>
+        <div class="card-body">
+            例如同一IP下开票金额集中、同一主体开票金额占其营收比例很高、开票频率异常、交易描述笼统、付款路径异常、无交付或验收资料的事项。对于"绵阳某主体收入约110万元、其中约70余万元发票集中于同IP个体户"的类似线索，应调取完整业务资料核实，<strong>不能仅依据IP作结论</strong>。
+        </div>
+    </div>
+
+    <div class="case-alert">
+        <div class="case-label">&#9888;&#65039; 重要提示：普票绝不是"安全票"</div>
+        <div class="case-body">
+            没有真实业务而开具增值税普通发票，同样可能引发行政、刑事及信用风险；但是否构成违法犯罪，必须以真实交易、主观故意、涉案事实及适用法律为依据，不能简单以"开了多少张、金额多少"做机械判断。企业内部<strong>不建议</strong>把某个张数或金额当作所谓"安全线"。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策与案例提示</div>
+        <div class="policy-text">
+            法释〔2024〕4号《最高人民法院、最高人民检察院关于办理危害税收征管刑事案件适用法律若干问题的解释》自2024年3月20日起施行，对虚假申报、虚列支出、虚抵进项等行为的法律适用作出规定。国家税务总局2021年通报的"四川查处'5·21'电子普通发票虚开案"显示，税务、公安会依托数据分析对空壳主体、异常开票等线索进行核查。上述案例仅用于风险教育，不对应认定本企业任何事项。
+        </div>
+    </div>
+
+    <!-- 事项 4：增值税税负率 -->
+    <div class="sub-title"><span class="item-badge">事项四</span> 增值税税负率约4.5%：不拿行业均值定对错，但要把该拿的票、该抵的税管起来</div>
+
+    <p class="para">税负率偏高不等于企业有问题，也不能仅以行业平均水平判断是否异常。工程咨询企业的项目结构、销项税率、分包安排、成本构成、客户类型、进项取得节奏都可能影响税负。但从已见发票数据看，住宿、差旅、机票、咨询、劳保用品、手机及其他采购中，存在对方具备开具专票条件而企业未取得专票、或未及时抵扣的可能，这会直接影响可抵扣进项和现金流。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128202; 建议先分成四本台账</div>
+        <div class="card-body">
+            <strong>① 未取专票台账 &nbsp; ② 已取未认证/未抵扣台账 &nbsp; ③ 红冲及异常发票台账 &nbsp; ④ 不可抵扣事项说明台账</strong><br>
+            每笔至少标注项目归属、经办人、发票类型、未取/未抵原因、后续处理。
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128269; 对高频费用设置前置规则</div>
+        <div class="card-body">
+            差旅、住宿、机票、咨询、采购、劳保、办公、车辆油费等，报销时不只看发票，还要看<strong>业务申请、出差/派车、项目归属、审批和实际发生证明</strong>。对手机等易与个人消费混同的物品，应特别明确使用人、用途、资产或领用登记。
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128663; 车辆油费重点补证</div>
+        <div class="card-body">
+            车辆台账、油卡明细、派车单、里程记录、项目归属、审批留痕<strong>相互匹配</strong>，证明其与生产经营相关。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策依据</div>
+        <div class="policy-text">
+            财税〔2016〕36号及现行增值税规定是判断应税行为、计税方式和抵扣事项的基础。是否可以抵扣，仍需结合取得的发票种类、业务用途和具体税务规定逐笔判断。
+        </div>
+    </div>
+
+    <!-- 事项 5：异常发票 -->
+    <div class="sub-title"><span class="item-badge">事项五</span> 异常发票、走逃线索及分公司/子公司票据错配：先把真实交易证据保住</div>
+
+    <p class="para">已见数据存在部分涉票主体开票后失联、未正常申报或涉税状态异常的线索，以及分公司、子公司或分包业务中发票税号错误、票据与业务规模不匹配等情况。此类问题的处理重点不是只看"票还能不能用"，而是要<strong>尽快保全和补强交易证据</strong>：合同、订单、付款、沟通、服务成果、进度确认、验收、人员投入、项目资料。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128736;&#65039; 按"逐票、逐项目、逐主体"排雷</div>
+        <div class="card-body">
+            先核对发票要素和税号 → 再核对合同和业务实质 → 再核对资金流 → 最后形成<strong>"资料充分 / 需补证 / 建议调整 / 需专业论证"</strong>四类结论。
+        </div>
+    </div>
+
+    <div class="action-card">
+        <div class="card-label">&#128279; 对分包或关联主体业务</div>
+        <div class="card-body">
+            把收入、合同、项目、人员、成本、发票和资金流放在<strong>一张匹配表</strong>里看。税号错误、开票名称与合同不一致、服务内容笼统、付款对象与开票方不一致的，应优先处理。
+        </div>
+    </div>
+
+    <div class="case-alert">
+        <div class="case-label">&#8505;&#65039; 提醒</div>
+        <div class="case-body">
+            异常涉税状态并不自动否定交易真实性；反过来，只有发票也不能当然证明交易真实。企业应避免在没有核实业务实质前作出"一律抵扣"或"一律剔除"的简单处理。
+        </div>
+    </div>
+
+    <!-- 事项 6：总分机构 -->
+    <div class="sub-title"><span class="item-badge">事项六</span> 总分机构、独立法人和小微优惠：先把结构看清，再谈节税</div>
+
+    <p class="para">从财务报表线索看，资产规模约<span class="amount">5,200万元</span>。按照现行小型微利企业常用判断口径，资产总额不超过5,000万元、从业人数不超过300人、应纳税所得额不超过300万元等条件需要同时满足；若资产总额确为5,200万元，则通常已不满足该资产条件。此前将相关门槛理解为"335"的说法不准确，建议管理层以各年度政策、法人主体和实际数据重新核实。</p>
+
+    <p class="para">同时，分公司、子公司、独立法人主体和汇总纳税安排的处理差异很大。高新技术企业15%税率、小型微利企业优惠、亏损弥补、总分机构汇总纳税等不能仅看"集团人数"或"集团利润"直接判断，必须按<strong>各法律主体、纳税主体及适用年度的条件</strong>分别核实。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128202; 建议先做一张"集团税务组织架构图"</div>
+        <div class="card-body">
+            列明每个主体的法律性质、是否独立法人、是否分公司、主管税务机关、所得税汇总/独立申报方式、主营业务、资产、人员、利润、亏损和已享受优惠。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策依据</div>
+        <div class="policy-text">
+            财政部、税务总局公告2023年第6号及相关征管规定明确了小型微利企业所得税优惠政策；优惠适用须以<strong>实际符合条件</strong>为前提。
+        </div>
+    </div>
+
+    <!-- 事项 7：政府补助 -->
+    <div class="sub-title"><span class="item-badge">事项七</span> 政府补助约90余万元：别只看会计科目，要看补助文件和挂钩方式</div>
+
+    <p class="para">对约<span class="amount">90余万元</span>政府补助，仅从报表或申报数据无法判断其增值税、企业所得税处理是否准确。若补助与销售货物、服务数量、销售额或价格<strong>直接挂钩</strong>，可能涉及增值税计税问题；企业所得税方面，是否作为不征税收入，也要看是否符合专项用途、资金拨付文件、专账核算等条件。</p>
+
+    <div class="action-card">
+        <div class="card-label">&#128269; 建议调取四类资料</div>
+        <div class="card-body">
+            ① 政府补助文件或协议 &nbsp; ② 资金拨付凭证 &nbsp; ③ 补助计算依据 &nbsp; ④ 会计处理及纳税申报记录<br>
+            必要时再结合实际业务和销售数据判断。
+        </div>
+    </div>
+
+    <div class="policy-box">
+        <div class="policy-label">&#128214; 政策依据</div>
+        <div class="policy-text">
+            财税〔2016〕36号及其附件对增值税应税行为和价外费用等作出规定；财税〔2011〕70号、国家税务总局公告2012年第15号对专项用途财政性资金企业所得税处理及管理提出要求。
+        </div>
+    </div>
+
+    <!-- ==================== 第三节 ==================== -->
+    <h2 class="section-title">三、不是"财务一个部门的整改"，而是把责任放回业务流程</h2>
+
+    <p class="para">这次梳理不是让财务部门增加更多手工审核，而是要求<strong>各部门对自己发起的业务负责</strong>。各角色的责任划分如下：</p>
+
+    <table class="info-table">
+        <thead>
+            <tr><th>责任部门</th><th>核心职责</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="num">&#128188;</td><td><strong>财务部门</strong> — 归集、审核、预警和政策判断</td></tr>
+            <tr><td class="num">&#128736;&#65039;</td><td><strong>业务部门</strong> — 对业务真实、合同履约、交付和验收负责</td></tr>
+            <tr><td class="num">&#128722;</td><td><strong>采购行政</strong> — 对供应商准入、费用真实性和资料完整性负责</td></tr>
+            <tr><td class="num">&#128101;</td><td><strong>管理层</strong> — 对跨部门协调、重大事项定责和结果闭环负责</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ==================== 第四节 ==================== -->
+    <h2 class="section-title">四、给管理层的结论</h2>
+
+    <div class="conclusion-box">
+        <div class="conclusion-title">&#127919; 核心判断</div>
+        <div class="conclusion-body">
+            永忠公司当前需要解决的，不是简单的"少缴税"或"多缴税"问题，而是把<strong>业务、合同、付款、交付、票据、费用归集和税务申报</strong>之间的链条真正连起来。研发费用、个体户与同IP线索、异常涉票主体、进项管理、历史所得税调整、总分机构和政府补助等事项，都是推动集团经营数据更透明、管理更规范的切入口。
+        </div>
+    </div>
+
+    <div class="principle-bar">
+        真实优先 &nbsp;｜&nbsp; 证据为本 &nbsp;｜&nbsp; 分类处理 &nbsp;｜&nbsp; 责任到人 &nbsp;｜&nbsp; 过程留痕
+    </div>
+
+    <table class="info-table">
+        <thead>
+            <tr><th>情形分类</th><th>处理方式</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="num" style="color:#27ae60;">&#9989;</td><td><strong>资料充分的</strong> — 尽快完成归档、复核和合规处理</td></tr>
+            <tr><td class="num" style="color:#f39c12;">&#9888;</td><td><strong>资料不足的</strong> — 先补证再判断</td></tr>
+            <tr><td class="num" style="color:#e74c3c;">&#10071;</td><td><strong>存在重大疑点或政策争议的</strong> — 单列事项开展专业论证</td></tr>
+        </tbody>
+    </table>
+
+    <p class="para no-indent">这样做既是<strong>防风险</strong>，也是帮助企业把该享受的政策享受到位、把不必要的税负和现金流压力降下来。</p>
+
+    <div class="alert-box">
+        <div class="alert-title">&#128206; 附注说明</div>
+        <div class="alert-body">
+            本报告所涉明细数据、主体名单、发票问题表、税号错误清单、同IP/MAC线索及待核资料清单，建议作为<strong>附件</strong>由咨询方另行提供企业。企业应以附件为核查底稿，不在本报告正文中直接罗列敏感主体及票据明细。
+        </div>
+    </div>
+
+    <!-- ==================== 第五节 ==================== -->
+    <h2 class="section-title">五、政策与案例依据（供管理层和相关部门查阅）</h2>
+
+    <p class="para no-indent" style="color:#888; font-size:13px;">以下依据用于说明"为什么要核实、为什么要补资料"，不替代针对某一笔业务的具体税务判断。涉及追补、调整、抵扣、优惠享受或风险处置时，仍应以所属年度政策、完整原始资料及主管税务机关口径为准。</p>
+
+    <table class="info-table">
+        <thead>
+            <tr><th style="width:40px;">序号</th><th>领域</th><th>政策文件</th><th>核心要求/提示</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="num">1</td>
+                <td><strong>研发活动及加计扣除</strong></td>
+                <td style="font-size:13px;">财税〔2015〕119号；国家税务总局公告2015年第97号、2017年第40号；财政部、税务总局公告2023年第7号</td>
+                <td>研发活动真实、费用准确归集、资料留存备查</td>
+            </tr>
+            <tr>
+                <td class="num">2</td>
+                <td><strong>以前年度应扣未扣支出</strong></td>
+                <td style="font-size:13px;">国家税务总局公告2012年第15号第六条</td>
+                <td>专项申报及说明后可追补确认，通常不超过5年；多缴税款按规定处理</td>
+            </tr>
+            <tr>
+                <td class="num">3</td>
+                <td><strong>虚假申报、虚开发票风险</strong></td>
+                <td style="font-size:13px;">《税收征收管理法》第六十三条；法释〔2024〕4号（2024年3月20日起施行）</td>
+                <td>虚列支出、虚抵进项、提供虚假材料骗取优惠等均可能引发法律风险，必须以真实业务和完整证据为基础</td>
+            </tr>
+            <tr>
+                <td class="num">4</td>
+                <td><strong>增值税及政府补助</strong></td>
+                <td style="font-size:13px;">财税〔2016〕36号及附件；财税〔2011〕70号</td>
+                <td>补助税务处理需结合补助文件、挂钩方式、资金用途和会计税务处理综合判断</td>
+            </tr>
+            <tr>
+                <td class="num">5</td>
+                <td><strong>小型微利企业优惠</strong></td>
+                <td style="font-size:13px;">财政部、税务总局公告2023年第6号及相关征管规定</td>
+                <td>需按法人/纳税主体及适用年度同时核验资产、人员、应纳税所得额等条件</td>
+            </tr>
+            <tr>
+                <td class="num">6</td>
+                <td><strong>公开稽查案例（风险教育）</strong></td>
+                <td style="font-size:13px;">
+                    国家税务总局2025年5月通报：嘉善景盛混凝土制品有限公司骗享研发费用加计扣除案<br>
+                    国家税务总局2021年5月通报：四川"5·21"电子普通发票虚开案
+                </td>
+                <td>案例用于说明监管关注点，不代表本企业存在同类事实</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <p class="para no-indent" style="text-align:center; color:var(--text-light); font-size: 14px;">
+        <strong>说明：</strong>本报告为内部管理建议文本。文中金额、比例和线索均以已提供资料及后续附件明细复核为准。
+    </p>
+
+    <!-- ==================== 页脚 ==================== -->
+    <div class="footer">
+        永忠工程管理（集团）有限公司 &nbsp;·&nbsp; 财税风险梳理及规范建议报告 &nbsp;·&nbsp; 内部文件
+    </div>
+
+</div>
+
+</body>
+</html>
